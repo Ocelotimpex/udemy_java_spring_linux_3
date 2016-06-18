@@ -11,9 +11,8 @@ public class OffersController {
 	@RequestMapping("/")
 	public String showHome(HttpSession session) {
 		
-		session.setAttribute("name", "Boris");
+		//session.setAttribute("name", "Boris");
 		
 		return "home";
 	}
-
 }
