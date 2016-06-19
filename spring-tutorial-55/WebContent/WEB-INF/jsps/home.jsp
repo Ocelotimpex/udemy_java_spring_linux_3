@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Spring Tutorial 55</title>
 </head>
 <body>
 Hi there!
 
-<!--  Session: <%= session.getAttribute("name") %> <p/>
--->
+Session: <%= session.getAttribute("name") %>  <p/>
+
 </body>
 </html>
