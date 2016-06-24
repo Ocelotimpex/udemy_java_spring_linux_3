@@ -16,4 +16,6 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
+	
+	<mvc:default-servlet-handler default-servlet-name="dsn1" />
 </beans>
