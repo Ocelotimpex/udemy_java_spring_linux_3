@@ -9,6 +9,7 @@
 <body>
 Hello, Spring...
 <br>
+<p>
 Session: <%= session.getAttribute("name") %> <p/>
 
 </body>

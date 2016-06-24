@@ -13,18 +13,9 @@ public class OffersController {
 
 	@RequestMapping("/")
 	public String showHome(HttpSession session) {
-	
-		System.out.println( "Debug 1 : session " + session );
 
-		/*if ( session == null ) {
-			ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-			session = attr.getRequest().getSession(true);
-		}*/
-		
 		session.setAttribute("name", "Boris");
-		
-		System.out.println( "Debug 1 : session " + session );
-		
+
 		return "home";
 	}
 }
