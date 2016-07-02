@@ -57,7 +57,7 @@ public class OffersController {
 		if (result.hasErrors()) {
 			System.out.println("Form does not validate.");
 			
-			List<ObjectError> errors = result.getAllErrors();
+			//List<ObjectError> errors = result.getAllErrors();
 			/*for (ObjectError error : errors ) {
 				System.out.println( error.getDefaultMessage() );
 			} */
