@@ -53,17 +53,17 @@ public class OffersController {
 	}
 	
 	@RequestMapping(value="/docreate", method=RequestMethod.POST)
-	public String doCreate(Model model, Offer offer ) { //, @Valid Offer offer, BindingResult result) {
-		/*if (result.hasErrors()) {
+	public String doCreate(Model model, @Valid Offer offer, BindingResult result ) { //, @Valid Offer offer, BindingResult result) {
+		if (result.hasErrors()) {
 			System.out.println("Form does not validate.");
 			
-		/*	List<ObjectError> errors = result.getAllErrors();
-			for (ObjectError error : errors ) {
+			List<ObjectError> errors = result.getAllErrors();
+			/*for (ObjectError error : errors ) {
 				System.out.println( error.getDefaultMessage() );
-			}
+			} */
 		} else {
-			System.out.println("Form validated."); */
-		// }
+			System.out.println("Form validated."); 
+		 }
 		return "offercreated";
 	}
 }
