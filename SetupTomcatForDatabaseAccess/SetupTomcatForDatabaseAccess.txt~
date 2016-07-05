@@ -1,0 +1,102 @@
+
+Setup Tomcat for Database Access
+
+1) Google "tomcat8 mysql datasource jndi"
+
+2) Click on "Apache Tomcat 8 (8.0.36) - JNDI Datasource HOW-TO"
+
+3) Go to the MySQL Configutaton link.
+
+4) You will need to edit a configuration file in the server and one in the application.
+
+5) Go to the "Context Configuration" example and copy:
+
+<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
+               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+               username="javauser" password="javadude" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/javatest"/>
+
+
+6) Go to the Servers tab in Eclipse and edit context.xml
+
+7) Paste the "<Resource ....> in the <Context> section.
+
+8) Edit the name, username, password and url to the name in the project.
+
+<Resource name="jdbc/spring" auth="Container" type="javax.sql.DataSource"
+               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+               username="root" password="mysqllocaldba01" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/springtutorial"/>
+
+9) Restart Tomcat and check for errors. 
+
+10) Configure the project to connect to the datasource.
+
+11) Go to the web.xml configuration example.
+
+12) Copy text below to web.xml
+
+  <description>MySQL Test App</description>
+  <resource-ref>
+      <description>DB Connection</description>
+      <res-ref-name>jdbc/TestDB</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+  </resource-ref>
+
+
+13) Change the description and resource-ref above to:
+
+  <description>MySQL Spring Database</description>
+  <resource-ref>
+      <description>DB Connection</description>
+      <res-ref-name>jdbc/offers</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+  </resource-ref>
+
+14) Copy the test code to a jsp if necessary.
+
+15) Copy the SQL tagline to the home.jsp.
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+
+16) Copy the prefix C to the home.jsp.
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+17) Copy the SQL query and modify it for your database.
+
+<c:forEach var="row" items="${rs.rows}">
+    Foo ${row.foo}<br/>
+    Bar ${row.bar}<br/>
+</c:forEach>
+
+... becomes ...
+
+<c:forEach var="row" items="${rs.rows}">
+    id ${row.id}<br/>
+    name ${row.name}<br/>
+    email ${row.email}<br/>
+    text ${row.text}<br/>
+</c:forEach>
+
+
+18) Also, make sure the mysql-connector-java library is in the poms.xml file.
+
+19) Also make sure javax-servlets jstl library is in the poms.xml file.
+
+20) If you get the message...
+
+The superclass "javax.servlet.http.HttpServlet" was not found on the Java Build Path
+
+... in the home.jsp file, 
+
+Do Project ---> Properties ---> Project Facets ---> Runtime ---> Select the runtime environment.
+
+
+
+
+
+
+
