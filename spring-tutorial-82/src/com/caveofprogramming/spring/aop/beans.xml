@@ -18,6 +18,4 @@
 
         <aop:aspectj-autoproxy proxy-target-class="false"></aop:aspectj-autoproxy>
 
-        
-        <bean name="car" class="com.caveofprogramming.spring.aop.Car"></bean>
 </beans>
