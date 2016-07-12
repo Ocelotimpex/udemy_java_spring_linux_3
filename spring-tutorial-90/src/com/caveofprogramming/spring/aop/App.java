@@ -9,21 +9,19 @@ public class App {
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
 				"com/caveofprogramming/spring/aop/beans.xml");
+ 
+		IBlender blender = (IBlender) context.getBean("blender");
 
-		ICamera camera = (ICamera) context.getBean("camera");
 
-
-	    camera.snap();
-	    camera.snap(500);
-	    camera.snap(1.8);
-	    camera.snap(500, 1.8);
-	    camera.snapNighttime();
+	    blender.blend();
 	    
-	    Car car = (Car)context.getBean("car");
-	    car.start();	
-	    
-	    camera.snapCar( new Car() );
+	    ((IMachine)blender).start();
 
+	    IFan fan = (IFan)context.getBean("fan");
+	    fan.activate(5);	
+	    
+	    ((IMachine)fan).start();
+	    
 		context.close();
 	}
 }
