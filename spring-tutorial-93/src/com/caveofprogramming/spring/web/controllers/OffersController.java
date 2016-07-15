@@ -56,7 +56,7 @@ public class OffersController {
 
 		return "offers";
 	}
-	
+	/*
 	private Object OffersService() {
 		// TODO Auto-generated method stub
 		return null;
@@ -67,7 +67,7 @@ public class OffersController {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+*/
 
 	@RequestMapping("/createoffer")
 	public String createOffer(Model model) {
