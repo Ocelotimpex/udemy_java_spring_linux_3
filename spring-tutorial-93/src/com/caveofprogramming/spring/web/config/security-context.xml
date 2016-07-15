@@ -6,4 +6,20 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="John" authorities="admin"
+					password="letmein" />
+				<security:user name="Zog" authorities="admin"
+					password="iamzog" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/**" access="denyAll" />
+		<security:form-login />
+	</security:http>
+
 </beans>
