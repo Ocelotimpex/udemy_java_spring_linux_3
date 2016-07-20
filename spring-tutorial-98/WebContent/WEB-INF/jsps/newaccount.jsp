@@ -18,32 +18,32 @@
 
 	<sf:form method="post"
 		action="${pageContext.request.contextPath}/createaccount"
-		commandName="offer">
+		commandName="user">
 		<table class="formtable">
 
 			<tr>
 				<td class="label">Username:</td>
 				<td><sf:input class="control" path="username" name="username"
 						type="text" /><br />
-				<sf:errors path="name" cssClass="error"></sf:errors></td>
+				</td>
 			</tr>
 			<tr>
 				<td class="label">Email:</td>
 				<td><sf:input class="control" path="email" name="email"
 						type="text" /><br />
-				<sf:errors path="email" cssClass="error"></sf:errors></td>
+				</td>
 			</tr>
 			<tr>
 				<td class="label">Password:</td>
 				<td><sf:input class="control" path="password" name="password"
 						type="text" /><br />
-				<sf:errors path="name" cssClass="error"></sf:errors></td>
+				</td>
 			</tr>
 			<tr>
 				<td class="label">Confirm Password:</td>
 				<td><input class="control"  name="confirmpass"
 						type="text" /><br />
-				<sf:errors path="name" cssClass="error"></sf:errors></td>
+				</td>
 			</tr>
 			<tr>
 				<td class="label">&nbsp;</td>
