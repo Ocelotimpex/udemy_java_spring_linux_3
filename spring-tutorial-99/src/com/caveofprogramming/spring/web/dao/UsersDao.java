@@ -26,7 +26,7 @@ public class UsersDao {
 		
 		jdbc.update("insert into users (username, password, email, enabled) values (:username, :password, :email, :enabled)", param);
 
-		return jdbc.update("insert into authorities (username, authority) values (:name, :authority)", param) == 1;
+		return jdbc.update("insert into authorities (username, authority) values (:username, :authority)", param) == 1;
 
 	}
 

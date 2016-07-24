@@ -2,6 +2,7 @@ package com.caveofprogramming.spring.web.controllers;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,11 @@ import com.caveofprogramming.spring.web.service.UsersService;
 public class LoginController {
 	
 	private UsersService usersService;
+	
+	@Autowired
+	public void setUsersService(UsersService usersService) {
+		this.usersService = usersService;
+	}
 	
 	@RequestMapping("/login")
 	public String showLogin() {
@@ -36,6 +42,7 @@ public class LoginController {
 		
 		user.setAuthority("user");
 		user.setEnabled(true);
+		System.out.println( "DEBUG user: user");
 		usersService.create(user);
 		
 		return "accountcreated";
