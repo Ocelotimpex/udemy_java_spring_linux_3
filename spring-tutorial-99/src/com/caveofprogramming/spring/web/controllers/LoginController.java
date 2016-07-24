@@ -34,14 +34,12 @@ public class LoginController {
 			return "createaccount";			
 		} 
 		
+		user.setAuthority("user");
+		user.setEnabled(true);
 		usersService.create(user);
 		
 		return "accountcreated";
 	}
 
-	@Autowired
-	public void setUsersService(UsersService usersService) {
-		this.usersService = usersService;
-	}
 
 }
