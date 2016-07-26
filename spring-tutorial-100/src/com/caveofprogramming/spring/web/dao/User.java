@@ -12,15 +12,15 @@ public class User {
 	@Pattern(regexp="^\\w{8,}$",message="Username can only consist of numbers, letters and and underscore character")
 	private String username;
 	
-	@NotBlank
-	@Pattern(regexp="^\\S+$")
+	@NotBlank(message="Password cannot be blank")
+	@Pattern(regexp="^\\S+$", message="Password cannot contain spaces.")
 	@Size(min=8,max=15,message="Password must be between 8 and 15 characters long.")
 	private String password;
 	
 	private boolean enabled = false;
 	private String authority;
 	
-	@Email
+	@Email(message="This does not appear to be a valid email address")
 	private String email;
 	
 	public User() {
