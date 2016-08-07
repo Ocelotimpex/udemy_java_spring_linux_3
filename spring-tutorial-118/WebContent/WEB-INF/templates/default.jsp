@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>    
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,29 +10,30 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/static/css/main.css"
 	type="text/css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/script/jquery.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/static/script/jquery.js"></script>
 
 <tiles:insertAttribute name="includes"></tiles:insertAttribute>
 </head>
 <body>
 
-<div class="header">
+	<div class="header">
 
-<tiles:insertAttribute name="header"></tiles:insertAttribute>
+		<tiles:insertAttribute name="header"></tiles:insertAttribute>
 
-</div>
-<div class="content">
+	</div>
+	<div class="content">
 
-<tiles:insertAttribute name="content"></tiles:insertAttribute>
+		<tiles:insertAttribute name="content"></tiles:insertAttribute>
 
-</div>
+	</div>
 
-<hr />
-<div class="footer">
+	<hr />
+	<div class="footer">
 
-<tiles:insertAttribute name="footer"></tiles:insertAttribute>
+		<tiles:insertAttribute name="footer"></tiles:insertAttribute>
 
-</div>
+	</div>
 
 
 
