@@ -19,14 +19,17 @@ public class Offer {
    	
    }
    
+   public String getUsername() {
+	   return user.getUsername();
+   }
+   
+   
 	public Offer(int id, User user, String text) {
 		this.id = id;
-		this.name = name;
-		this.email = email;
 		this.text = text;
 	}
 	
-	public Offer(User user, String name) {
+	public Offer(User user, String text) {
 		this.user = user;
 		this.text = text;
 	}
