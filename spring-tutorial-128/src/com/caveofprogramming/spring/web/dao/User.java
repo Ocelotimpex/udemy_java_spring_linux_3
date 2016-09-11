@@ -52,6 +52,7 @@ public class User {
 		return username;
 	}
 	public void setUsername(String username) {
+		System.out.println( "DEBUG       username [" + username + "]");
 		this.username = username;
 	}
 	public String getPassword() {
@@ -122,8 +123,9 @@ public class User {
 		if (username == null) {
 			if (other.username != null)
 				return false;
-		} else if (!username.equals(other.username))
+		} else if (!username.equals(other.username)) {
 			return false;
+		}
 		return true;
 	}
 
