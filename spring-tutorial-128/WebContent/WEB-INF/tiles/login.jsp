@@ -14,6 +14,7 @@
 <c:if test="${param.error != null}">
 
 	<p class="error">Login failed. Check that your username and password are correct.</p>
+	
 
 </c:if>
 

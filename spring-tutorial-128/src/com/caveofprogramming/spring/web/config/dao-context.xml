@@ -15,7 +15,7 @@
 		base-package="com.caveofprogramming.spring.web.dao">
 	</context:component-scan>
 	
-	<beans profile="production">
+	<beans profile="dev">
 	
 	<jee:jndi-lookup jndi-name="jdbc/offers" id="dataSource"
 		expected-type="javax.sql.DataSource">
