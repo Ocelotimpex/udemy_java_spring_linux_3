@@ -18,3 +18,4 @@ Issues:
 	classpath:com/caveofprogramming/spring/web/config/security-context.xml		
 	
 6) datasource.xml points to com/caveofprogramming/spring/web/test/config/jdbc.properties
+
