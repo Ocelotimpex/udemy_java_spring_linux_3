@@ -21,7 +21,7 @@ public class UsersDao {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	@Autowired
+	//@Autowired
 	public void setDataSource(DataSource jdbc) {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
