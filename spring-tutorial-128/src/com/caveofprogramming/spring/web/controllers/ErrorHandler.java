@@ -12,11 +12,9 @@ public class ErrorHandler {
 		ex.printStackTrace();
 		return "error";
 	}
-
+	
 	@ExceptionHandler(AccessDeniedException.class)
 	public String handleAccessException(AccessDeniedException ex) {
 		return "denied";
 	}
-	
 }
-

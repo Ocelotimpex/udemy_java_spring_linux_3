@@ -23,10 +23,8 @@ public class OffersService {
 		return offersDao.getOffers();
 	}
 
-	@Secured({"ROLE_USER","ROLE_ADMIN"})
+	@Secured({"ROLE_USER", "ROLE_ADMIN"})
 	public void create(Offer offer) {
 		offersDao.create(offer);
-		
 	}
-
 }

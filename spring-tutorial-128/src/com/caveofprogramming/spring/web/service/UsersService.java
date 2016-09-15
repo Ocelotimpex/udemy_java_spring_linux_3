@@ -15,18 +15,17 @@ public class UsersService {
 	private UsersDao usersDao;
 	
 	@Autowired
-	public void setUsersDao(UsersDao usersDao) {
+	public void setOffersDao(UsersDao usersDao) {
 		this.usersDao = usersDao;
 	}
 
+	
 	public void create(User user) {
 		usersDao.create(user);
-		
 	}
 
-	public boolean exists(String username) {
-		// TODO Auto-generated method stub
 
+	public boolean exists(String username) {
 		return usersDao.exists(username);
 	}
 
@@ -34,5 +33,4 @@ public class UsersService {
 	public List<User> getAllUsers() {
 		return usersDao.getAllUsers();
 	}
-
 }

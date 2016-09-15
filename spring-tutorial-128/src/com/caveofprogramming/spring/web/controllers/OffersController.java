@@ -1,6 +1,5 @@
 package com.caveofprogramming.spring.web.controllers;
 
-
 import java.util.List;
 
 import javax.validation.Valid;
@@ -22,19 +21,16 @@ import com.caveofprogramming.spring.web.service.OffersService;
 @Controller
 public class OffersController {
 	
-	private OffersService offersService;	
-
+	private OffersService offersService;
+	
 	@Autowired
 	public void setOffersService(OffersService offersService) {
 		this.offersService = offersService;
 	}
-
 	
-	// Call using : http://localhost:8080/offers/test?id=723
 	@RequestMapping(value="/test", method=RequestMethod.GET)
-	public String showTest(Model model,@RequestParam("id") String id) {
-
-		System.out.println("ID is: " + id);
+	public String showTest(Model model, @RequestParam("id") String id) {
+		System.out.println("Id is: " + id);
 		return "home";
 	}
 	
@@ -42,46 +38,34 @@ public class OffersController {
 	@ExceptionHandler(DataAccessException.class)
 	public String handleDatabaseException(DataAccessException ex) {
 		return "error";
-	}
 	*/
-	
+
 	@RequestMapping("/offers")
 	public String showOffers(Model model) {
 		
 		//offersService.throwTestException();
-
+		
 		List<Offer> offers = offersService.getCurrent();
 		
 		model.addAttribute("offers", offers);
-
+		
 		return "offers";
 	}
-	/*
-	private Object OffersService() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	private Object offersService() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-*/
-
+	
 	@RequestMapping("/createoffer")
 	public String createOffer(Model model) {
+	
+		model.addAttribute("offer", new Offer());
 		
-		model.addAttribute("offer", new Offer() );
-
 		return "createoffer";
 	}
 	
 	@RequestMapping(value="/docreate", method=RequestMethod.POST)
-	public String doCreate(Model model, @Valid Offer offer, BindingResult result ) { 
-		if (result.hasErrors()) {
-			return "createoffer";			
-		} 
+	public String doCreate(Model model, @Valid Offer offer, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "createoffer";
+		}
 		
 		offersService.create(offer);
 		

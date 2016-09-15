@@ -13,7 +13,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.caveofprogramming.spring.web.dao.Offer;
 import com.caveofprogramming.spring.web.dao.User;
 import com.caveofprogramming.spring.web.service.UsersService;
 
@@ -26,7 +25,7 @@ public class LoginController {
 	public void setUsersService(UsersService usersService) {
 		this.usersService = usersService;
 	}
-	
+
 	@RequestMapping("/login")
 	public String showLogin() {
 		return "login";
@@ -37,6 +36,16 @@ public class LoginController {
 		return "denied";
 	}
 	
+	@RequestMapping("/admin")
+	public String showAdmin(Model model) {
+		
+		List<User> users = usersService.getAllUsers();
+		
+		model.addAttribute("users", users);
+		
+		return "admin";
+	}
+	
 	@RequestMapping("/loggedout")
 	public String showLoggedOut() {
 		return "loggedout";
@@ -44,53 +53,35 @@ public class LoginController {
 	
 	@RequestMapping("/newaccount")
 	public String showNewAccount(Model model) {
-		model.addAttribute("user", new User() );
+		
+		model.addAttribute("user", new User());
 		return "newaccount";
 	}
 	
-	@RequestMapping("/admin")
-	public String showAdmin(Model model) {
-		
-//		throw new AccessDeniedException("Hello"); 
-	//	try {
-			List <User> users = usersService.getAllUsers();
-			
-			model.addAttribute("users", users);
-	//	} catch (Exception e) {
-	//		System.out.println("Exception: " + e.getClass());
-	//	}
-		
 
-		return "admin";
-	}
-	
 	@RequestMapping(value="/createaccount", method=RequestMethod.POST)
-	public String createAccount(@Valid User user, BindingResult result ) { 
+	public String createAccount(@Valid User user, BindingResult result) {
 		
-		System.out.println( "DEBUG user: " + user);
-		
-		if (result.hasErrors()) {
-			return "newaccount";			
-		} 
-		
-		user.setAuthority("ROLE_USER");
-		user.setEnabled(true);		
-		
-		if ( usersService.exists( user.getUsername() ) ) {
-			System.out.println("Caught duplicate username");
-			result.rejectValue("username", "DuplicateKey.user.username" );
+		if(result.hasErrors()) {
 			return "newaccount";
 		}
-		try {
-			usersService.create(user);
-		} catch (DuplicateKeyException e) {
-			System.out.println(e.getClass());
+		
+		user.setAuthority("ROLE_USER");
+		user.setEnabled(true);
+		
+		if(usersService.exists(user.getUsername())) {
 			result.rejectValue("username", "DuplicateKey.user.username");
 			return "newaccount";
 		}
 		
+		try {
+			usersService.create(user);
+		} catch (DuplicateKeyException e) {
+			result.rejectValue("username", "DuplicateKey.user.username");
+			return "newaccount";
+		}
+		
+		
 		return "accountcreated";
 	}
-
-
 }

@@ -1,35 +1,26 @@
 package com.caveofprogramming.spring.web.dao;
 
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import com.caveofprogramming.spring.web.validation.ValidEmail;
-import com.sun.istack.internal.NotNull;
-
 public class Offer {
-    private int id;
-  
-    @Size(min=5, max=100, message="Text must be between 20 and 255 characters.")
-    private String text;
-    
-    private  User user;
-    
-    
-   public Offer() {
-   	
-   }
-   
-   public String getUsername() {
-	   return user.getUsername();
-   }
-   
-   
-	public Offer(int id, User user, String text) {
-		this.id = id;
+	private int id;
+	
+	@Size(min=5, max=255)
+	private String text;
+	
+	private User user;
+	
+	public Offer() {
+		
+	}
+
+	public Offer(User user, String text) {
+		this.user = user;
 		this.text = text;
 	}
-	
-	public Offer(User user, String text) {
+
+	public Offer(int id, User user, String text) {
+		this.id = id;
 		this.user = user;
 		this.text = text;
 	}
@@ -37,14 +28,29 @@ public class Offer {
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 	
-	
-	@Override
-	public String toString() {
-		return "Offer [id=" + id + ", text=" + text + ", user=" + user + "]";
+	public String getUsername() {
+		return user.getUsername();
 	}
 
 	@Override
@@ -78,18 +84,13 @@ public class Offer {
 		return true;
 	}
 
-	public User getUser() {
-		return user;
+	@Override
+	public String toString() {
+		return "Offer [id=" + id + ", text=" + text + ", user=" + user + "]";
 	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
 
-	public String getText() {
-		return text;
-	}
-	public void setText(String text) {
-		this.text = text;
-	}
+	
+	
+
 }
