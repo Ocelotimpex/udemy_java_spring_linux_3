@@ -26,3 +26,21 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 
 
 Tried removing Autowired statements from dao methods.
+
+8) From Servers ----> context.xml
+
+PRODUCTION
+
+<Resource name="jdbc/spring" auth="Container" type="javax.sql.DataSource"
+               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+               username="root" password="mysqllocaldba01" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/springtutorial"/>
+               
+DEV
+
+<Resource name="jdbc/spring" auth="Container" type="javax.sql.DataSource"
+               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+               username="root" password="mysqllocaldba01" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/springtest"/>
+               
+                              
