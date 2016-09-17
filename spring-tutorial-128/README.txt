@@ -43,4 +43,7 @@ DEV
                username="root" password="mysqllocaldba01" driverClassName="com.mysql.jdbc.Driver"
                url="jdbc:mysql://localhost:3306/springtest"/>
                
+9) Try @Autowired @Qualifier("dataSource"), making sure the data source bean has an ID, "dataSource". 
+If it doesn't work, I suspect your dependencies. I'm curious if it tells you there is no bean with ID datasource.              
+               
                               
