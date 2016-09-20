@@ -29,7 +29,7 @@ Tried removing Autowired statements from dao methods.
 
 8) From Servers ----> context.xml
 
-PRODUCTION
+Production
 
 <Resource name="jdbc/spring" auth="Container" type="javax.sql.DataSource"
                maxTotal="100" maxIdle="30" maxWaitMillis="10000"
