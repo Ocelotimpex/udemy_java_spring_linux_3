@@ -20,6 +20,8 @@ public class Offer {
     @Size(min=5, max=100, message="Text must be between 20 and 255 characters.")
     private String text;
     
+    private User user;
+    
     
    public Offer() {
    	
