@@ -9,15 +9,6 @@ import com.sun.istack.internal.NotNull;
 public class Offer {
     private int id;
 
-    @Size(min=5, max=100, message="Name must be between 5 and 100 characters.")
-    private String name;
-    
-    @NotNull
-    //@Pattern(regexp=".*\\@*\\..*", message="This does not appear to be a valid email address")
-    @ValidEmail(min=6, message="This email address is not valid")
-    private String email;
-    
-    @Size(min=5, max=100, message="Text must be between 20 and 255 characters.")
     private String text;
     
     private User user;
@@ -27,17 +18,14 @@ public class Offer {
    	
    }
    
-	public Offer(int id, String name, String email, String text) {
+	public Offer(int id, User user, String text) {
 		this.id = id;
-		this.name = name;
-		this.email = email;
+		this.user = user;
 		this.text = text;
 	}
 	
-	public Offer(String name, String email, String text) {
-		System.out.print("In the 3 param constructor...");
-		this.name = name;
-		this.email = email;
+	public Offer(User user, String name ) {
+		this.user = user;
 		this.text = text;
 	}
 
@@ -47,23 +35,56 @@ public class Offer {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public String getUsername() {
+		return user.getUsername();
+	}
+
+	
 	@Override
 	public String toString() {
-		return "Offer [id=" + id + ", name=" + name + ", email=" + email
-				+ ", text=" + text + "]";
+		return "Offer [id=" + id + ", text=" + text + ", user=" + user + "]";
 	}
-	public String getName() {
-		return name;
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((text == null) ? 0 : text.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Offer other = (Offer) obj;
+		if (text == null) {
+			if (other.text != null)
+				return false;
+		} else if (!text.equals(other.text))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
 	}
-	public String getEmail() {
-		return email;
+
+	public User getUser() {
+		return user;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
+
 	public String getText() {
 		return text;
 	}
