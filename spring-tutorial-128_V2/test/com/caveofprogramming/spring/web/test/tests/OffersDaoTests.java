@@ -27,7 +27,8 @@ import com.caveofprogramming.spring.web.dao.UsersDao;
 		"classpath:com/caveofprogramming/spring/web/config/security-context.xml",
 		"classpath:com/caveofprogramming/spring/web/test/config/datasource.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
-public class OfferDaoTests {
+
+public class OffersDaoTests {
 
 	@Autowired
 	private OffersDao offersDao;
@@ -35,6 +36,7 @@ public class OfferDaoTests {
 	@Autowired
 	private UsersDao usersDao;
 
+	
 	@Autowired
 	private DataSource dataSource;
 
