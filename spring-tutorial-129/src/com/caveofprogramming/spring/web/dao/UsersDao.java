@@ -48,7 +48,7 @@ public class UsersDao {
 
 	public boolean exists(String username) {
 		// TODO Auto-generated method stub
-		return jdbc.queryForObject( "select count(*) from users where username = :username", 
+		return jdbc.queryForObject( "select count(*) from users where username =  :username", 
 				new MapSqlParameterSource("username", username), Integer.class ) > 0;
 	}
 

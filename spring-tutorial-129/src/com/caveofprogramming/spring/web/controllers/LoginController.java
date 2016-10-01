@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.access.AccessDeniedException;
@@ -22,6 +23,8 @@ public class LoginController {
 	
 	private UsersService usersService;
 	
+	private static Logger logger = Logger.getLogger(HomeController.class);
+	
 	@Autowired
 	public void setUsersService(UsersService usersService) {
 		this.usersService = usersService;
@@ -29,11 +32,13 @@ public class LoginController {
 	
 	@RequestMapping("/login")
 	public String showLogin() {
+		logger.info("*** DEBUG *** LoginController: in /login");
 		return "login";
 	}
 	
 	@RequestMapping("/denied")
 	public String showDenied() {
+		logger.info("*** DEBUG *** LoginController: returning /denied");
 		return "denied";
 	}
 	
@@ -73,6 +78,8 @@ public class LoginController {
 		user.setAuthority("ROLE_USER");
 		user.setEnabled(true);
 		System.out.println( "DEBUG user: user");
+		
+		logger.info("*** DEBUG *** LoginController: username: " + user.getUsername());
 		
 		if ( usersService.exists( user.getUsername() ) ) {
 			System.out.println("Caught duplicate username");
