@@ -5,4 +5,6 @@
                username="root" password="mysqllocaldba01" driverClassName="com.mysql.jdbc.Driver"
                url="jdbc:mysql://localhost:3306/springtest"/>
                
-Adding this stoped the missing jdbc exception, but there are still issues.               
+Adding this stoped the missing jdbc exception, but there are still issues.
+
+Determine the cause of the database error.               
