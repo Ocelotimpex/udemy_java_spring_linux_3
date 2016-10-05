@@ -14,7 +14,7 @@
 
 
 		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-			destroy-method="close"> 
+			destroy-method="close">
 
 			<property name="driverClassName" value="${jdbc.driver}"></property>
 			<property name="username" value="${jdbc.username}"></property>

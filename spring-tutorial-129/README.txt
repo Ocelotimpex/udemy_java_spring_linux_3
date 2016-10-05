@@ -16,3 +16,7 @@ Adding this stoped the missing jdbc exception, but there are still issues.
 
 Determine the cause of the database error.               
 >>>>>>> f54f7a441dcade5fecbd5bddc6eabe61e97271dc
+
+
+10/4/2016 - Moving datasource.xml and jdbc.properties to com.caveofprogramming.spring.web.config from 
+the test directory allowed the program to run on the server again.
