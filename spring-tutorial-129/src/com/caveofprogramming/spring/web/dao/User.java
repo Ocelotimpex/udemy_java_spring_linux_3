@@ -7,29 +7,29 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 public class User {
-	
+
 	@NotBlank()
-	@Size(min=8,max=15)
-	@Pattern(regexp="^\\w{8,}$")
+	@Size(min = 8, max = 15)
+	@Pattern(regexp = "^\\w{8,}$")
 	private String username;
-	
+
 	@NotBlank()
-	@Pattern(regexp="^\\S+$")
-	@Size(min=8,max=15)
+	@Pattern(regexp = "^\\S+$")
+	@Size(min = 8, max = 15)
 	private String password;
-	
+
 	private boolean enabled = false;
 	private String authority;
-	
+
 	@Email()
 	private String email;
-	
+
 	private String name;
-	
+
 	public User() {
-		
+
 	}
-	
+
 	public User(String username, String name, String password, String email, boolean enabled, String authority) {
 		this.username = username;
 		this.name = name;
@@ -38,6 +38,7 @@ public class User {
 		this.enabled = enabled;
 		this.authority = authority;
 	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -49,24 +50,31 @@ public class User {
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public boolean isEnabled() {
 		return enabled;
 	}
+
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
 	public String getAuthority() {
 		return authority;
 	}
+
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
@@ -130,8 +138,5 @@ public class User {
 		return "User [username=" + username + ", enabled=" + enabled + ", authority=" + authority + ", email=" + email
 				+ ", name=" + name + "]";
 	}
-
-
-
 
 }

@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UsersDao {
 
 	private NamedParameterJdbcTemplate jdbc;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
@@ -26,38 +26,35 @@ public class UsersDao {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
 
-
 	@Transactional
 	public boolean create(User user) {
 
-		//BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(user);
+		// BeanPropertySqlParameterSource param = new
+		// BeanPropertySqlParameterSource(user);
 		MapSqlParameterSource params = new MapSqlParameterSource();
-		
+
 		params.addValue("username", user.getUsername());
 		params.addValue("password", passwordEncoder.encode(user.getUsername()));
 		params.addValue("email", user.getEmail());
 		params.addValue("name", user.getName());
 		params.addValue("enabled", user.isEnabled());
 		params.addValue("authority", user.getAuthority());
-		
-		System.out.println( "DEBUG createUser: before jdbc update...");
-		
+
+		System.out.println("DEBUG createUser: before jdbc update...");
+
 		return jdbc.update("insert into users (username, name, password, email, enabled, authority) "
 				+ "values (:username, :name, :password, :email, :enabled, :authority)", params) == 1;
 
 	}
 
-
 	public boolean exists(String username) {
 		// TODO Auto-generated method stub
-		return jdbc.queryForObject( "select count(*) from users where username =  :username", 
-				new MapSqlParameterSource("username", username), Integer.class ) > 0;
+		return jdbc.queryForObject("select count(*) from users where username =  :username",
+				new MapSqlParameterSource("username", username), Integer.class) > 0;
 	}
 
-
 	public List<User> getAllUsers() {
-		return jdbc.query("select * from users",
-				BeanPropertyRowMapper.newInstance(User.class));
+		return jdbc.query("select * from users", BeanPropertyRowMapper.newInstance(User.class));
 	}
 
 }
