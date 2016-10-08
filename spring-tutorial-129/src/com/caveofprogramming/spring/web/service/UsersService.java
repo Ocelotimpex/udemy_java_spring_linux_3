@@ -32,6 +32,9 @@ public class UsersService {
 
 	@Secured("ROLE_ADMIN")
 	public List<User> getAllUsers() {
+
+		System.out.println( "*** DEBUG ***  List () user: " + usersDao.getAllUsers() );
+		 
 		return usersDao.getAllUsers();
 	}
 
