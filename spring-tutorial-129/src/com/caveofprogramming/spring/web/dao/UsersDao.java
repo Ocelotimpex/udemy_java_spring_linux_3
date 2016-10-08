@@ -32,9 +32,11 @@ public class UsersDao {
 		// BeanPropertySqlParameterSource param = new
 		// BeanPropertySqlParameterSource(user);
 		MapSqlParameterSource params = new MapSqlParameterSource();
+		
+		
 
 		params.addValue("username", user.getUsername());
-		params.addValue("password", passwordEncoder.encode(user.getUsername()));
+		params.addValue("password", passwordEncoder.encode(user.getPassword()));
 		params.addValue("email", user.getEmail());
 		params.addValue("name", user.getName());
 		params.addValue("enabled", user.isEnabled());
