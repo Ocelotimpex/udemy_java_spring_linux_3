@@ -1,6 +1,7 @@
 package com.caveofprogramming.spring.web.controllers;
 
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -78,10 +79,15 @@ public class OffersController {
 	}
 	
 	@RequestMapping(value="/docreate", method=RequestMethod.POST)
-	public String doCreate(Model model, @Valid Offer offer, BindingResult result ) { 
+	public String doCreate(Model model, @Valid Offer offer, BindingResult result, Principal principal ) { 
 		if (result.hasErrors()) {
 			return "createoffer";			
 		} 
+		
+		String username = principal.getName();
+		System.out.println("DEBUG /docreate username = " + username );
+		
+		offer.getUser().setUsername( username );
 		
 		offersService.create(offer);
 		

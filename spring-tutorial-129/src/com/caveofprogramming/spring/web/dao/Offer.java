@@ -15,6 +15,8 @@ public class Offer {
     
     
    public Offer() {
+	   
+	   this.user = new User();
    	
    }
    
@@ -24,7 +26,7 @@ public class Offer {
 		this.text = text;
 	}
 	
-	public Offer(User user, String name ) {
+	public Offer(User user, String text ) {
 		this.user = user;
 		this.text = text;
 	}

@@ -9,19 +9,6 @@
 		action="${pageContext.request.contextPath}/docreate"
 		commandName="offer">
 		<table class="formtable">
-
-			<tr>
-				<td class="label">Name:</td>
-				<td><sf:input class="control" path="name" name="name"
-						type="text" /><br />
-				<sf:errors path="name" cssClass="error"></sf:errors></td>
-			</tr>
-			<tr>
-				<td class="label">Email:</td>
-				<td><sf:input class="control" path="email" name="email"
-						type="text" /><br />
-				<sf:errors path="email" cssClass="error"></sf:errors></td>
-			</tr>
 			<tr>
 				<td class="label">Your Offer:</td>
 				<td><sf:textarea class="control" rows="10" path="text"
