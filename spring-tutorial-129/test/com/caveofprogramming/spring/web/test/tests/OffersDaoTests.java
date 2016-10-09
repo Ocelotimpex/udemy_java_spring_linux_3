@@ -49,7 +49,7 @@ public class OffersDaoTests {
 	}
 
 	@Test
-	public void testCreateUser() {
+	public void testCreateOffer() {
 
 		User user = new User("johnwpurcell", "John Purcell", "hellothere",
 				"john@caveofprogramming.com", true, "user");
