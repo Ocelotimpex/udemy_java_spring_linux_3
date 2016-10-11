@@ -31,9 +31,14 @@ public class OffersService {
 
 	public boolean hasOffer(String name) {
 		// TODO Auto-generated method stub
+		System.out.println( "DEBUG hasOffer name = " + name );
 		if ( name == null) return false;
 		
+		System.out.println( "DEBUG : Still in hasOffers");
+		
 		List<Offer> offers = offersDao.getOffers(name);
+		System.out.println( "DEBUG : List offers.size() : " + offers.size() );
+		System.out.println( "DEBUG : List offers" + offers );
 		
 		if ( offers.size() == 0) {
 			System.out.print("DEBUG hasOffer: offers.size() = " + offers.size() ) ;

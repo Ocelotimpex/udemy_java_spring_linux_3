@@ -33,7 +33,7 @@ public class HomeController {
 			hasOffer = offersService.hasOffer(principal.getName());
 		}
 		
-		model.addAttribute("hasOffer", hasOffer);
+		model.addAttribute("hasOffer", hasOffer); 
 
 		return "home";
 	}

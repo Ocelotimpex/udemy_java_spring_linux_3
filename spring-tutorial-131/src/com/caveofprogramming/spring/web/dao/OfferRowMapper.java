@@ -21,7 +21,7 @@ public class OfferRowMapper implements RowMapper<Offer> {
 		offer.setText(rs.getString("text"));
 		offer.setUser(user);
 
-		return null;
+		return offer;
 	}
 
 }
