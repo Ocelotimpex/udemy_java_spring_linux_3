@@ -7,26 +7,25 @@ import com.caveofprogramming.spring.web.validation.ValidEmail;
 import com.sun.istack.internal.NotNull;
 
 public class Offer {
-    private int id;
+	private int id;
 
-    private String text;
-    
-    private User user;
-    
-    
-   public Offer() {
-	   
-	   this.user = new User();
-   	
-   }
-   
+	private String text;
+
+	private User user;
+
+	public Offer() {
+
+		this.user = new User();
+
+	}
+
 	public Offer(int id, User user, String text) {
 		this.id = id;
 		this.user = user;
 		this.text = text;
 	}
-	
-	public Offer(User user, String text ) {
+
+	public Offer(User user, String text) {
 		this.user = user;
 		this.text = text;
 	}
@@ -34,15 +33,15 @@ public class Offer {
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getUsername() {
 		return user.getUsername();
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Offer [id=" + id + ", text=" + text + ", user=" + user + "]";
@@ -90,6 +89,7 @@ public class Offer {
 	public String getText() {
 		return text;
 	}
+
 	public void setText(String text) {
 		this.text = text;
 	}

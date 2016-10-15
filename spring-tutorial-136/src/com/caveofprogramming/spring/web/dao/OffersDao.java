@@ -28,16 +28,17 @@ public class OffersDao {
 
 	public List<Offer> getOffers() {
 
-		return jdbc.query("select * from offers, users where offers.username = users.username and users.enabled=true", 
-				new OfferRowMapper() );
-	
+		return jdbc.query("select * from offers, users where offers.username = users.username and users.enabled=true",
+				new OfferRowMapper());
+
 	}
-	
+
 	public List<Offer> getOffers(String username) {
 
-		return jdbc.query("select * from offers, users where offers.username = users.username and users.enabled=true and offers.username=:username", 
-				new MapSqlParameterSource("username",username), new OfferRowMapper() );
-	
+		return jdbc.query(
+				"select * from offers, users where offers.username = users.username and users.enabled=true and offers.username=:username",
+				new MapSqlParameterSource("username", username), new OfferRowMapper());
+
 	}
 
 	public boolean update(Offer offer) {
@@ -61,8 +62,7 @@ public class OffersDao {
 
 		SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(offers.toArray());
 
-		return jdbc.batchUpdate("insert into offers (username, text) values (:username, :text)",
-				params);
+		return jdbc.batchUpdate("insert into offers (username, text) values (:username, :text)", params);
 
 	}
 
@@ -79,9 +79,9 @@ public class OffersDao {
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("id", id);
 
-		return jdbc.queryForObject("select * from offers, users where offers.username = users.username and users.enabled=true", 
-				params, new OfferRowMapper() );
-			}
-		
+		return jdbc.queryForObject(
+				"select * from offers, users where offers.username = users.username and users.enabled=true", params,
+				new OfferRowMapper());
+	}
 
 }
