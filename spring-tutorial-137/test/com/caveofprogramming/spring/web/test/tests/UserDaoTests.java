@@ -23,11 +23,13 @@ import com.caveofprogramming.spring.web.dao.User;
 import com.caveofprogramming.spring.web.dao.UsersDao;
 
 @ActiveProfiles("dev")
-@ContextConfiguration(locations = { "classpath:com/caveofprogramming/spring/web/config/dao-context.xml",
+@ContextConfiguration(locations = {
+		"classpath:com/caveofprogramming/spring/web/config/dao-context.xml",
 		"classpath:com/caveofprogramming/spring/web/config/security-context.xml",
-		"classpath:com/caveofprogramming/spring/web/test/config/datasource.xml"})
-
+		"classpath:com/caveofprogramming/spring/web/config/service-context.xml",
+		"classpath:com/caveofprogramming/spring/web/config/datasource.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
+
 public class UserDaoTests {
 	
 	@Autowired
