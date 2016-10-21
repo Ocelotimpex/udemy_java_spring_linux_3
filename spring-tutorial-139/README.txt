@@ -20,3 +20,8 @@ Determine the cause of the database error.
 
 10/4/2016 - Moving datasource.xml and jdbc.properties to com.caveofprogramming.spring.web.config from 
 the test directory allowed the program to run on the server again.
+
+Get Hibernate to validate:
+https://docs.jboss.org/hibernate/validator/4.1/reference/en-US/html/validator-checkconstraints.html
+
+Copy this: javax.persistence.validation.group.pre-persist,

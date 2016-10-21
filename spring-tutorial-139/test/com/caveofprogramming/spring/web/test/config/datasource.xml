@@ -21,5 +21,24 @@
 			<property name="url" value="${jdbc.url}"></property>
 			<property name="password" value="${jdbc.password}"></property>
 		</bean>
+		
+	<bean id="sessionFactory"
+			class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+			<property name="dataSource" ref="dataSource"></property>
+			<property name="hibernateProperties">
+				<props>
+					<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+					<prop key="javax.persistence.validation.group.pre-persist">com.caveofprogramming.spring.web.dao.PresistanceValidationGroup</prop>
+					<prop key="javax.persistence.validation.group.pre-update">com.caveofprogramming.spring.web.dao.PresistanceValidationGroup</prop>
+					<prop key="javax.persistence.validation.group.pre-remove">com.caveofprogramming.spring.web.dao.PresistanceValidationGroup</prop>
+					
+				</props>
+			</property>
+			<property name="packagesToScan">
+				<list>
+					<value>com.caveofprogramming.spring.web.dao</value>
+				</list>
+			</property>
+		</bean>		
 	</beans>
 </beans>
