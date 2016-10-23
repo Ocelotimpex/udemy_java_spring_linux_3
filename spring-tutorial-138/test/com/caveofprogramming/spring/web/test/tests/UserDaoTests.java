@@ -40,11 +40,11 @@ public class UserDaoTests {
 	
 	@Autowired
 	private DataSource dataSource;
-	
-	private User user1 = new User( "amandaking", "Amanda King", "Spy app", "amanda@king.com", true, "ROLE_ADMIN");
-	private User user2 = new User( "jilldanko", "Jill Danko", "Hosipial app", "jill@danko.com", true, "ROLE_ADMIN");
-	private User user3 = new User( "peggymaxwell", "Peggy Maxwell", "Office app", "peggy@maxwell.com", true, "ROLE_ADMIN");
-	private User user4 = new User( "sabrinaduncan", "Sabrina Duncan", "Dectective app", "sabrina@duncan.com", true, "ROLE_ADMIN");
+	 
+	private User user1 = new User( "amandaking", "Amanda King", "password", "amanda@king.com", true, "ROLE_ADMIN");
+	private User user2 = new User( "jilldanko", "Jill Danko", "password", "jill@danko.com", true, "ROLE_ADMIN");
+	private User user3 = new User( "peggymaxwell", "Peggy Maxwell", "password", "peggy@maxwell.com", true, "ROLE_ADMIN");
+	private User user4 = new User( "sabrinaduncan", "Sabrina Duncan", "password", "sabrina@duncan.com", true, "ROLE_ADMIN");
 	
 	
 	@Before

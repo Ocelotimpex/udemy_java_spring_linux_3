@@ -26,7 +26,7 @@ import com.caveofprogramming.spring.web.dao.UsersDao;
 		"classpath:com/caveofprogramming/spring/web/config/dao-context.xml",
 		"classpath:com/caveofprogramming/spring/web/config/security-context.xml",
 		"classpath:com/caveofprogramming/spring/web/config/service-context.xml",
-		"classpath:com/caveofprogramming/spring/web/config/datasource.xml" })
+		"classpath:com/caveofprogramming/spring/web/test/config/datasource.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
 
 public class OffersDaoTests {
