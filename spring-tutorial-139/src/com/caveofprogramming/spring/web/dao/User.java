@@ -24,7 +24,7 @@ public class User {
 	private String username;
 
 	@NotBlank(groups={FormValidationGroup.class})
-	@Size(min = 8, max = 15,groups={FormValidationGroup.class})
+	@Size(min = 8, max = 15,groups={PersistenceValidationGroup.class,FormValidationGroup.class})
 	@Pattern(regexp = "^\\w{8,}$",groups={FormValidationGroup.class})
 	private String password;
 

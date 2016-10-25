@@ -24,4 +24,6 @@ the test directory allowed the program to run on the server again.
 Get Hibernate to validate:
 https://docs.jboss.org/hibernate/validator/4.1/reference/en-US/html/validator-checkconstraints.html
 
+Chapter 6 ORM Integration
+
 Copy this: javax.persistence.validation.group.pre-persist,
