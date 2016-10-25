@@ -1,0 +1,495 @@
+megazor@m5:/me/code/spring/workspace07/spring-tutorial-126$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 5.6.31 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> describe offers;
+ERROR 1046 (3D000): No database selected
+mysql> use springtutorial;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from offers;
++----+----------------+----------------------------------+-----------------------------------------------------------------------+
+| id | name           | email                            | text                                                                  |
++----+----------------+----------------------------------+-----------------------------------------------------------------------+
+|  1 | Steve          | steve@caveofprogramming.com      | Cash for Software                                                     |
+|  2 | Joe            | joe@caveofprogramming.com        | Elegent Web Design                                                    |
+|  3 | Roger Moore    | roger@creativewebstuff.com       | I will create amazing websites that will astonish you                 |
+|  4 | Roger Moore    | roger@creativewebstuff.com       | I will create amazing websites that will astonish you                 |
+|  5 | Peggy Maxwell  | peggy@notgwebdesign.com          | Web applications done fast and cheap.                                 |
+|  6 | Peggy Maxwell  | peggy@notgwebdesign.com          | Web applications done fast and cheap.                                 |
+|  7 | Jill Danko     | jill@ludlowdesign.com            | Added controller code back in.  Troubleshooting double entry problem. |
+|  8 | Garry Rafferty | garry@downthelineprogramming.com | Right down the line.                                                  |
+|  9 | Selina Meyer   | selina@myers.com                 | Excellent web programming.                                            |
+| 10 | Selina Meyer   | selina@myers.com                 | Excellent web programming.                                            |
+| 11 | Selina Meyer   | selina@myers.com                 | Excellent web programming.  Was this too short?                       |
+| 12 | Mary Richards  | Mary@GCN.com                     | Let's see if a new item looks ok.                                     |
+| 13 | John123        | john@caveofprogramming.com       | Hello                                                                 |
+| 14 | Amanda King    | ak@hotmail.com                   | This is a test offer                                                  |
++----+----------------+----------------------------------+-----------------------------------------------------------------------+
+14 rows in set (0.00 sec)                                                                                                                                                      
+                                                                                                                                                                               
+mysql> describe offers;
++-------+--------------+------+-----+---------+----------------+                                                                                                               
+| Field | Type         | Null | Key | Default | Extra          |                                                                                                               
++-------+--------------+------+-----+---------+----------------+
+| id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(100) | NO   |     | NULL    |                |
+| email | varchar(60)  | NO   |     | NULL    |                |
+| text  | text         | NO   |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> describe users;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(60) | NO   | PRI | NULL    |       |
+| password | varchar(80) | YES  |     | NULL    |       |
+| enabled  | tinyint(4)  | YES  |     | 1       |       |
+| email    | varchar(60) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> describe authorities;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| username  | varchar(60) | NO   | PRI | NULL    |       |
+| authority | varchar(45) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table offers drop column email;
+Query OK, 0 rows affected (0.18 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe offers;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(100) | NO   |     | NULL    |                |
+| text  | text         | NO   |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> alter table offers drop column name;
+Query OK, 0 rows affected (0.18 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe users;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(60) | NO   | PRI | NULL    |       |
+| password | varchar(80) | YES  |     | NULL    |       |
+| enabled  | tinyint(4)  | YES  |     | 1       |       |
+| email    | varchar(60) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table users add name varchar(100) first;
+Query OK, 0 rows affected (0.18 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe users;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| name     | varchar(100) | YES  |     | NULL    |       |
+| username | varchar(60)  | NO   | PRI | NULL    |       |
+| password | varchar(80)  | YES  |     | NULL    |       |
+| enabled  | tinyint(4)   | YES  |     | 1       |       |
+| email    | varchar(60)  | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> describe authority;
+ERROR 1146 (42S02): Table 'springtutorial.authority' doesn't exist
+mysql> describe authorities;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| username  | varchar(60) | NO   | PRI | NULL    |       |
+| authority | varchar(45) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> a;ter table users add authority varchar(45);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ter table users add authority varchar(45)' at line 1
+mysql> alter table users add authority varchar(45);
+Query OK, 0 rows affected (0.14 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe users;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| name      | varchar(100) | YES  |     | NULL    |       |
+| username  | varchar(60)  | NO   | PRI | NULL    |       |
+| password  | varchar(80)  | YES  |     | NULL    |       |
+| enabled   | tinyint(4)   | YES  |     | 1       |       |
+| email     | varchar(60)  | YES  |     | NULL    |       |
+| authority | varchar(45)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> drop table authorities;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select * from offers;
++----+-----------------------------------------------------------------------+
+| id | text                                                                  |
++----+-----------------------------------------------------------------------+
+|  1 | Cash for Software                                                     |
+|  2 | Elegent Web Design                                                    |
+|  3 | I will create amazing websites that will astonish you                 |
+|  4 | I will create amazing websites that will astonish you                 |
+|  5 | Web applications done fast and cheap.                                 |
+|  6 | Web applications done fast and cheap.                                 |
+|  7 | Added controller code back in.  Troubleshooting double entry problem. |
+|  8 | Right down the line.                                                  |
+|  9 | Excellent web programming.                                            |
+| 10 | Excellent web programming.                                            |
+| 11 | Excellent web programming.  Was this too short?                       |
+| 12 | Let's see if a new item looks ok.                                     |
+| 13 | Hello                                                                 |
+| 14 | This is a test offer                                                  |
++----+-----------------------------------------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select * from users;
++------+---------------+----------------------------------------------------------------------------------+---------+------------------+-----------+
+| name | username      | password                                                                         | enabled | email            | authority |
++------+---------------+----------------------------------------------------------------------------------+---------+------------------+-----------+
+| NULL | administrator | 5765670c9bfc4371d2f8c4c426e94d04f7a1b30b34e3c240b73486f3215eb94a758887400e8454ab |       1 | admin@cave.com   | NULL      |
+| NULL | amandaking    | 95869ab86df7db868b0e35ab3e743cd028d3a2041854308723d509d3eaf9f964e6585dd54ee12913 |       1 | aking@cia.gov    | NULL      |
+| NULL | jilldanko     | 208311ceb3559b0a6073e1b94300540143df9ebe21940d061901cb17909388c5590cb1d96e4f9a9f |       1 | jill@rookies.com | NULL      |
+| NULL | sabrinaduncan | 8c8fe28bc2181fffe70986329ce4fd43fdad566c92631404fef5621814c2e30ed11a28f22ccb461a |       1 | sduncan@tda.com  | NULL      |
+| NULL | testuser      | e82f6eb7cf1d2c6067bca4eb882cbac454729dffae6e4618a2b3aa4af27a10d0dbc2629bbcb803e1 |       1 | test@test.com    | NULL      |
++------+---------------+----------------------------------------------------------------------------------+---------+------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> describe users;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| name      | varchar(100) | YES  |     | NULL    |       |
+| username  | varchar(60)  | NO   | PRI | NULL    |       |
+| password  | varchar(80)  | YES  |     | NULL    |       |
+| enabled   | tinyint(4)   | YES  |     | 1       |       |
+| email     | varchar(60)  | YES  |     | NULL    |       |
+| authority | varchar(45)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> describe offers;
++-------+---------+------+-----+---------+----------------+
+| Field | Type    | Null | Key | Default | Extra          |
++-------+---------+------+-----+---------+----------------+
+| id    | int(11) | NO   | PRI | NULL    | auto_increment |
+| text  | text    | NO   |     | NULL    |                |
++-------+---------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> describe users;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| name      | varchar(100) | YES  |     | NULL    |       |
+| username  | varchar(60)  | NO   | PRI | NULL    |       |
+| password  | varchar(80)  | YES  |     | NULL    |       |
+| enabled   | tinyint(4)   | YES  |     | 1       |       |
+| email     | varchar(60)  | YES  |     | NULL    |       |
+| authority | varchar(45)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table offers add foreign key ('users_username') references users('username')
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''users_username') references users('username')' at line 1
+mysql> alter table offers add foreign key ('users_username') references users('username')
+    -> 
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''users_username') references users('username')' at line 1
+mysql> alter table offers add foreign key ('users_username') references users('username');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''users_username') references users('username')' at line 1
+mysql> alter table 'offers' add foreign key ('users_username') references 'users' ('username');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''offers' add foreign key ('users_username') references 'users' ('username')' at line 1
+mysql> alter table offers add foreign key (users_username) references users (username);
+ERROR 1072 (42000): Key column 'users_username' doesn't exist in table
+mysql> alter table offers add foreign key (username) references users (username);
+ERROR 1072 (42000): Key column 'username' doesn't exist in table
+mysql> alter table offers add users_username smallint unsigned not null default 0;
+Query OK, 0 rows affected (0.18 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table offers add foreign key (users_username) references users (username);
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql> alter table offers add constraint users_username foreign_key( username )  references users (username);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'foreign_key( username )  references users (username)' at line 1
+mysql> alter table offers add constraint fk_username foreign_key( username )  references users (username);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'foreign_key( username )  references users (username)' at line 1
+mysql> describe users;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| name      | varchar(100) | YES  |     | NULL    |       |
+| username  | varchar(60)  | NO   | PRI | NULL    |       |
+| password  | varchar(80)  | YES  |     | NULL    |       |
+| enabled   | tinyint(4)   | YES  |     | 1       |       |
+| email     | varchar(60)  | YES  |     | NULL    |       |
+| authority | varchar(45)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> describe offers;
++----------------+----------------------+------+-----+---------+----------------+
+| Field          | Type                 | Null | Key | Default | Extra          |
++----------------+----------------------+------+-----+---------+----------------+
+| id             | int(11)              | NO   | PRI | NULL    | auto_increment |
+| text           | text                 | NO   |     | NULL    |                |
+| users_username | smallint(5) unsigned | NO   |     | 0       |                |
++----------------+----------------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> alter table offers modify column users_username int not null add constraint fk_users_username foreign key( username) references users(username);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'add constraint fk_users_username foreign key( username) references users(usernam' at line 1
+mysql> alter table offers add foreign key( users_username_fk) references users(username);
+ERROR 1072 (42000): Key column 'users_username_fk' doesn't exist in table
+mysql> alter table offers add foreign key( users_username) references users(username);
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql> alter table offers delete column users_username;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'delete column users_username' at line 1
+mysql> alter table offers drop column users_username;
+Query OK, 0 rows affected (0.74 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe users;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| name      | varchar(100) | YES  |     | NULL    |       |
+| username  | varchar(60)  | NO   | PRI | NULL    |       |
+| password  | varchar(80)  | YES  |     | NULL    |       |
+| enabled   | tinyint(4)   | YES  |     | 1       |       |
+| email     | varchar(60)  | YES  |     | NULL    |       |
+| authority | varchar(45)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> describe offers;
++-------+---------+------+-----+---------+----------------+
+| Field | Type    | Null | Key | Default | Extra          |
++-------+---------+------+-----+---------+----------------+
+| id    | int(11) | NO   | PRI | NULL    | auto_increment |
+| text  | text    | NO   |     | NULL    |                |
++-------+---------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> alter table offers add constraint users_username foreign key( 'username' );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''username' )' at line 1
+mysql> alter table offers add constraint users_username foreign key( 'users_username' );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''users_username' )' at line 1
+mysql> alter table offers add constraint users_username foreign key( users_username );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> help alter table
+Name: 'ALTER TABLE'
+Description:
+Syntax:
+ALTER [ONLINE|OFFLINE] [IGNORE] TABLE tbl_name
+    [alter_specification [, alter_specification] ...]
+    [partition_options]
+
+alter_specification:
+    table_options
+  | ADD [COLUMN] col_name column_definition
+        [FIRST | AFTER col_name ]
+  | ADD [COLUMN] (col_name column_definition,...)
+  | ADD {INDEX|KEY} [index_name]
+        [index_type] (index_col_name,...) [index_option] ...
+  | ADD [CONSTRAINT [symbol]] PRIMARY KEY
+        [index_type] (index_col_name,...) [index_option] ...
+  | ADD [CONSTRAINT [symbol]]
+        UNIQUE [INDEX|KEY] [index_name]
+        [index_type] (index_col_name,...) [index_option] ...
+  | ADD FULLTEXT [INDEX|KEY] [index_name]
+        (index_col_name,...) [index_option] ...
+  | ADD SPATIAL [INDEX|KEY] [index_name]
+        (index_col_name,...) [index_option] ...
+  | ADD [CONSTRAINT [symbol]]
+        FOREIGN KEY [index_name] (index_col_name,...)
+        reference_definition
+  | ALGORITHM [=] {DEFAULT|INPLACE|COPY}
+  | ALTER [COLUMN] col_name {SET DEFAULT literal | DROP DEFAULT}
+  | CHANGE [COLUMN] old_col_name new_col_name column_definition
+        [FIRST|AFTER col_name]
+  | LOCK [=] {DEFAULT|NONE|SHARED|EXCLUSIVE}
+  | MODIFY [COLUMN] col_name column_definition
+        [FIRST | AFTER col_name]
+  | DROP [COLUMN] col_name
+  | DROP PRIMARY KEY
+  | DROP {INDEX|KEY} index_name
+  | DROP FOREIGN KEY fk_symbol
+  | DISABLE KEYS
+  | ENABLE KEYS
+  | RENAME [TO|AS] new_tbl_name
+  | ORDER BY col_name [, col_name] ...
+  | CONVERT TO CHARACTER SET charset_name [COLLATE collation_name]
+  | [DEFAULT] CHARACTER SET [=] charset_name [COLLATE [=] collation_name]
+  | DISCARD TABLESPACE
+  | IMPORT TABLESPACE
+  | FORCE
+  | ADD PARTITION (partition_definition)
+  | DROP PARTITION partition_names
+  | TRUNCATE PARTITION {partition_names | ALL}
+  | COALESCE PARTITION number
+  | REORGANIZE PARTITION partition_names INTO (partition_definitions)
+  | EXCHANGE PARTITION partition_name WITH TABLE tbl_name
+  | ANALYZE PARTITION {partition_names | ALL}
+  | CHECK PARTITION {partition_names | ALL}
+  | OPTIMIZE PARTITION {partition_names | ALL}
+  | REBUILD PARTITION {partition_names | ALL}
+  | REPAIR PARTITION {partition_names | ALL}
+  | REMOVE PARTITIONING
+
+index_col_name:
+    col_name [(length)] [ASC | DESC]
+
+index_type:
+    USING {BTREE | HASH}
+
+index_option:
+    KEY_BLOCK_SIZE [=] value
+  | index_type
+  | WITH PARSER parser_name
+  | COMMENT 'string'
+
+table_options:
+    table_option [[,] table_option] ...  (see CREATE TABLE options)
+
+partition_options:
+    (see CREATE TABLE options)
+
+ALTER TABLE changes the structure of a table. For example, you can add
+or delete columns, create or destroy indexes, change the type of
+existing columns, or rename columns or the table itself. You can also
+change characteristics such as the storage engine used for the table or
+the table comment.
+
+Following the table name, specify the alterations to be made. If none
+are given, ALTER TABLE does nothing.
+
+The syntax for many of the permissible alterations is similar to
+clauses of the CREATE TABLE statement. See [HELP CREATE TABLE], for
+more information.
+
+table_options signifies table options of the kind that can be used in
+the CREATE TABLE statement, such as ENGINE, AUTO_INCREMENT,
+AVG_ROW_LENGTH, MAX_ROWS, or ROW_FORMAT. For a list of all table
+options and a description of each, see [HELP CREATE TABLE]. However,
+ALTER TABLE ignores the DATA DIRECTORY and INDEX DIRECTORY table
+options.
+
+Use of table options with ALTER TABLE provides a convenient way of
+altering single table characteristics. For example, if t1 is currently
+not an InnoDB table, this statement changes its storage engine to
+InnoDB:
+
+ALTER TABLE t1 ENGINE = InnoDB;
+
+To change the InnoDB table to use compressed row-storage format:
+
+ALTER TABLE t1 ROW_FORMAT = COMPRESSED;
+
+To reset the current auto-increment value:
+
+ALTER TABLE t1 AUTO_INCREMENT = 13;
+
+To change the default table character set:
+
+ALTER TABLE t1 CHARACTER SET = utf8;
+
+To add (or change) a table comment:
+
+ALTER TABLE t1 COMMENT = 'New table comment';
+
+To verify that the table options were changed as you intend, use SHOW
+CREATE TABLE.
+
+partition_options signifies options that can be used with partitioned
+tables for repartitioning, for adding, dropping, merging, and splitting
+partitions, and for performing partitioning maintenance. It is possible
+for an ALTER TABLE statement to contain a PARTITION BY or REMOVE
+PARTITIONING clause in an addition to other alter specifications, but
+the PARTITION BY or REMOVE PARTITIONING clause must be specified last
+after any other specifications. The ADD PARTITION, DROP PARTITION,
+COALESCE PARTITION, REORGANIZE PARTITION, EXCHANGE PARTITION, ANALYZE
+PARTITION, CHECK PARTITION, and REPAIR PARTITION options cannot be
+combined with other alter specifications in a single ALTER TABLE, since
+the options just listed act on individual partitions. For more
+information about partition options, see [HELP CREATE TABLE], and
+http://dev.mysql.com/doc/refman/5.6/en/alter-table-partition-operations
+.html. For information about and examples of ALTER TABLE ... EXCHANGE
+PARTITION statements, see
+http://dev.mysql.com/doc/refman/5.6/en/partitioning-management-exchange
+.html.
+
+Some operations may result in warnings if attempted on a table for
+which the storage engine does not support the operation. These warnings
+can be displayed with SHOW WARNINGS. See [HELP SHOW WARNINGS].
+
+For information on troubleshooting ALTER TABLE, see
+http://dev.mysql.com/doc/refman/5.6/en/alter-table-problems.html.
+
+URL: http://dev.mysql.com/doc/refman/5.6/en/alter-table.html
+
+
+mysql> 
+mysql> alter table offers add constraint users_username references users( username );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'references users( username )' at line 1
+mysql> 
+mysql> 
+mysql> describe offers;
++-------+---------+------+-----+---------+----------------+
+| Field | Type    | Null | Key | Default | Extra          |
++-------+---------+------+-----+---------+----------------+
+| id    | int(11) | NO   | PRI | NULL    | auto_increment |
+| text  | text    | NO   |     | NULL    |                |
++-------+---------+------+-----+---------+----------------+
+2 rows in set (0.01 sec)
+
+mysql> describer users;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'describer users' at line 1
+mysql> describer user;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'describer user' at line 1
+mysql> describe users;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| name      | varchar(100) | YES  |     | NULL    |       |
+| username  | varchar(60)  | NO   | PRI | NULL    |       |
+| password  | varchar(80)  | YES  |     | NULL    |       |
+| enabled   | tinyint(4)   | YES  |     | 1       |       |
+| email     | varchar(60)  | YES  |     | NULL    |       |
+| authority | varchar(45)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table add constraint user_username foreign key users(username);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'add constraint user_username foreign key users(username)' at line 1
+mysql> 
+
