@@ -52,8 +52,11 @@ public class OffersDao {
 	public boolean create(Offer offer) {
 
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(offer);
+		
+		int retVal = jdbc.update("insert into offers (username, text) values (:username, :text)", param);
+		System.out.println( "DEBUG: retVal = " + retVal);
 
-		return jdbc.update("insert into offers (username, text) values (:username, :text)", param) == 1;
+		return retVal == 1;
 
 	}
 
@@ -61,6 +64,8 @@ public class OffersDao {
 	public int[] create(List<Offer> offers) {
 
 		SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(offers.toArray());
+		
+		System.out.println( "DEBUG: (2)" );
 
 		return jdbc.batchUpdate("insert into offers (username, text) values (:username, :text)", params);
 

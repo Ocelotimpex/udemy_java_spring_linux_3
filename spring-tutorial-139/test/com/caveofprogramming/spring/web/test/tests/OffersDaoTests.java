@@ -25,10 +25,8 @@ import com.caveofprogramming.spring.web.dao.UsersDao;
 @ContextConfiguration(locations = {
 		"classpath:com/caveofprogramming/spring/web/config/dao-context.xml",
 		"classpath:com/caveofprogramming/spring/web/config/security-context.xml",
-		"classpath:com/caveofprogramming/spring/web/config/service-context.xml",
-		"classpath:com/caveofprogramming/spring/web/config/datasource.xml" })
+		"classpath:com/caveofprogramming/spring/web/test/config/datasource.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
-
 public class OffersDaoTests {
 
 	@Autowired
@@ -37,7 +35,6 @@ public class OffersDaoTests {
 	@Autowired
 	private UsersDao usersDao;
 
-	
 	@Autowired
 	private DataSource dataSource;
 
@@ -50,7 +47,7 @@ public class OffersDaoTests {
 	}
 
 	@Test
-	public void testCreateOffer() {
+	public void testOffers() {
 
 		User user = new User("johnwpurcell", "John Purcell", "hellothere",
 				"john@caveofprogramming.com", true, "user");
@@ -60,36 +57,48 @@ public class OffersDaoTests {
 		Offer offer = new Offer(user, "This is a test offer.");
 
 		assertTrue("Offer creation should return true", offersDao.create(offer));
-
+/*
 		List<Offer> offers = offersDao.getOffers();
 
 		assertEquals("Should be one offer in database.", 1, offers.size());
 
 		assertEquals("Retrieved offer should match created offer.", offer,
 				offers.get(0));
-		
+
 		// Get the offer with ID filled in.
 		offer = offers.get(0);
-		
+
 		offer.setText("Updated offer text.");
-		assertTrue("Offer update should return true", offersDao.update(offer));		
-		Offer offer2 = new Offer(user, "This is a test offer.");
-		assertTrue("Offer creation should return true", offersDao.create(offer2));
-		
-		List<Offer> userOffers = offersDao.getOffers(user.getUsername());
-		assertEquals("Should be two offers for user.", 2, userOffers.size() );
-				
+		assertTrue("Offer update should return true", offersDao.update(offer));
+
 		Offer updated = offersDao.getOffer(offer.getId());
 
 		assertEquals("Updated offer should match retrieved updated offer",
 				offer, updated);
 
+		// Test get by ID ///////
+		Offer offer2 = new Offer(user, "This is a test offer.");
+
+		assertTrue("Offer creation should return true", offersDao.create(offer2));
+		
+		List<Offer> userOffers = offersDao.getOffers(user.getUsername());
+		assertEquals("Should be two offers for user.", 2, userOffers.size());
+		
+		List<Offer> secondList = offersDao.getOffers();
+		
+		for(Offer current: secondList) {
+			Offer retrieved = offersDao.getOffer(current.getId());
+			
+			assertEquals("Offer by ID should match offer from list.", current, retrieved);
+		}
+		
+		// Test deletion
 		offersDao.delete(offer.getId());
 
 		List<Offer> finalList = offersDao.getOffers();
 
 		assertEquals("Offers lists should contain one offer.", 1, finalList.size());
-		
+		*/
 	}
 
 }
