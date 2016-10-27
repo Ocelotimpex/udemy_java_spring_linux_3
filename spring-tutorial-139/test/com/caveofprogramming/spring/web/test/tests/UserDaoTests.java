@@ -26,8 +26,7 @@ import com.caveofprogramming.spring.web.dao.UsersDao;
 @ContextConfiguration(locations = {
 		"classpath:com/caveofprogramming/spring/web/config/dao-context.xml",
 		"classpath:com/caveofprogramming/spring/web/config/security-context.xml",
-		"classpath:com/caveofprogramming/spring/web/config/service-context.xml",
-		"classpath:com/caveofprogramming/spring/web/config/datasource.xml" })
+		"classpath:com/caveofprogramming/spring/web/test/config/datasource.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
 
 public class UserDaoTests {
@@ -69,7 +68,7 @@ public class UserDaoTests {
 		usersDao.create(user4);
 		
 		List<User> users2 = usersDao.getAllUsers();
-		assertEquals("Should be four retreived users.",4, users2.size() );
+		assertEquals("Should be four retreived users.",4, users2.size() ); 
 	}
 	
 	// TODO - Reimplement this
@@ -90,7 +89,7 @@ public class UserDaoTests {
 		assertTrue( "User should exist", usersDao.exists( user.getUsername()));
 		
 		assertEquals("Created user should be identical to retrieved user", user, users.get(0) );
-		
+	
 	
 	}
 
