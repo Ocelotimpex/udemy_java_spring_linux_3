@@ -2,6 +2,8 @@ package com.caveofprogramming.spring.web.dao;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -14,6 +16,9 @@ import com.sun.istack.internal.NotNull;
 @Entity
 @Table(name="offers")
 public class Offer {
+	
+	@Id
+	@GeneratedValue
 	private int id;
 
 	@Size(min=5, max=255,groups={PersistenceValidationGroup.class,FormValidationGroup.class})
