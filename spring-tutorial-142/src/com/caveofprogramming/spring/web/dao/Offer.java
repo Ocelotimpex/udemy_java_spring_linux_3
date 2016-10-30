@@ -1,6 +1,9 @@
 package com.caveofprogramming.spring.web.dao;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -13,8 +16,13 @@ import com.sun.istack.internal.NotNull;
 public class Offer {
 	private int id;
 
+	@Size(min=5, max=255,groups={PersistenceValidationGroup.class,FormValidationGroup.class})
+	@Column(name="text")
 	private String text;
 
+	// @ManyToOne - Think of it as mapping from the object you are in to the other object.
+	@ManyToOne
+	@JoinColumn(name="username")
 	private User user;
 
 	public Offer() {
