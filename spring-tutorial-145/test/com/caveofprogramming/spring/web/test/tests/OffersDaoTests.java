@@ -116,6 +116,30 @@ public class OffersDaoTests {
 
             
         }
+        
+        @Test
+        public void testUpdate() {
+        	usersDao.create(user1);
+            usersDao.create(user2);
+            usersDao.create(user3);
+            usersDao.create(user4);
+            
+            offersDao.saveOrUpdate(offer2);
+            offersDao.saveOrUpdate(offer3);
+            offersDao.saveOrUpdate(offer4);
+            offersDao.saveOrUpdate(offer5);
+            offersDao.saveOrUpdate(offer6);
+            offersDao.saveOrUpdate(offer7);
+            
+            offer3.setText( "This offer has updated test.");
+            offersDao.saveOrUpdate(offer3);
+            
+            Offer retrived = offersDao.getOffer(offer3.getId());
+            assertEquals( "Retrived offer should be updated.", offer3, retrived);
+
+            System.out.println( retrived.getText() );
+
+        }
 
         @Test
         public void testOffers() {
@@ -169,7 +193,7 @@ public class OffersDaoTests {
                 List<Offer> finalList = offersDao.getOffers();
 
                 assertEquals("Offers lists should contain one offer.", 1, finalList.size());
-                */
+                
         }
 
 }

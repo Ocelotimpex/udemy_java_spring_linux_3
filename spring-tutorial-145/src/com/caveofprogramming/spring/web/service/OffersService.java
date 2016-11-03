@@ -61,12 +61,7 @@ public class OffersService {
 	}
 
 	public void saveOrUpdate(Offer offer) {
-		if ( offer.getId() != 0) {
-			offersDao.update( offer );
-		} else {
-			offersDao.saveOrUpdate(offer);
-		}
-		
+			offersDao.saveOrUpdate(offer);	
 	}
 
 	public void delete(int id) {
