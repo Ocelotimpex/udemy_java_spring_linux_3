@@ -27,3 +27,5 @@ https://docs.jboss.org/hibernate/validator/4.1/reference/en-US/html/validator-ch
 Chapter 6 ORM Integration
 
 Copy this: javax.persistence.validation.group.pre-persist,
+
+Deleted and then added messagesent.jsp
