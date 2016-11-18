@@ -1,0 +1,174 @@
+mysql> use springtutorial
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from users
+    -> ;
++-------------------+--------------+---------+-----------------------------+
+| username          | password     | enabled | email                       |
++-------------------+--------------+---------+-----------------------------+
+| administrator     | hellohello   |       1 | admin@caveofprogramming.com |
+| amandaking        | password     |       1 | amanda@cia.org              |
+| eeeeeeeee2        | wweweewewe   |       1 | foo@bar.com                 |
+| jebthelowenergy   | gfgfgggfgfgf |       1 | jeb@lowerg.org              |
+| johnwpurcell      | helloooo     |       1 | johnp@cave                  |
+| JuanWPurcello     | hellohello   |       1 | juan@cavodepro              |
+| JuanWPurcello3    | hellohello   |       1 | juan@cavodepro              |
+| Mike              | hello        |       1 | NULL                        |                                                                                                    
+| rhoda morgenstern | hello        |       1 | rhoda@caveofprogramming.com |                                                                                                    
+| ross              | hello        |       1 | ross@caveofprogramming      |                                                                                                    
+| ross1232          | 12345678     |       1 | ross@caveofprog.com         |                                                                                                    
+| ross2132          | 11111111     |       1 | roo@dd.com                  |                                                                                                    
++-------------------+--------------+---------+-----------------------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from authorities
+    -> ;
++-------------------+------------+
+| username          | authority  |
++-------------------+------------+
+| administrator     | ROLE_ADMIN |
+| amandaking        | ROLE_USER  |
+| eeeeeeeee2        | ROLE_USER  |
+| jebthelowenergy   | ROLE_USER  |
+| johnwpurcell      | ROLE_USER  |
+| JuanWPurcello     | ROLE_USER  |
+| JuanWPurcello3    | ROLE_USER  |
+| Mike              | ROLE_ADMIN |
+| rhoda morgenstern | ROLE_USER  |
+| ross1232          | ROLE_USER  |
+| ross2132          | ROLE_USER  |
++-------------------+------------+
+11 rows in set (0.00 sec)
+
+mysql> delete * from users;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* from users' at line 1
+mysql> delete from users;
+Query OK, 12 rows affected (0.01 sec)
+
+mysql> delete from authorities;
+Query OK, 11 rows affected (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from users;
+Empty set (0.00 sec)
+
+mysql> select * from authorities;
+Empty set (0.00 sec)
+
+mysql> select * from users;
++-----------+----------------------------------------------------------------------------------+---------+------------------+
+| username  | password                                                                         | enabled | email            |
++-----------+----------------------------------------------------------------------------------+---------+------------------+
+| jilldanko | efe125e56277e6646639438125c9360c484d4b737111080bc4bf65c8aa865bb99817e81c2d619440 |       1 | jill@rookies.com |
++-----------+----------------------------------------------------------------------------------+---------+------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from authorities;
+Empty set (0.00 sec)
+
+mysql> delete from users;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from users;
+Empty set (0.00 sec)
+
+mysql> select * from users;
++-----------+----------------------------------------------------------------------------------+---------+------------------+
+| username  | password                                                                         | enabled | email            |
++-----------+----------------------------------------------------------------------------------+---------+------------------+
+| jilldanko | 208311ceb3559b0a6073e1b94300540143df9ebe21940d061901cb17909388c5590cb1d96e4f9a9f |       1 | jill@rookies.com |
++-----------+----------------------------------------------------------------------------------+---------+------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from authorities;
++-----------+-----------+
+| username  | authority |
++-----------+-----------+
+| jilldanko | ROLE_USER |
++-----------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select * from authorities;
++---------------+-----------+
+| username      | authority |
++---------------+-----------+
+| administrator | ROLE_USER |
+| jilldanko     | ROLE_USER |
++---------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> update authorities set authority='ROLE_ADMIN' where username = 'administrator';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from authorities;
++---------------+------------+
+| username      | authority  |
++---------------+------------+
+| administrator | ROLE_ADMIN |
+| jilldanko     | ROLE_USER  |
++---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> delete from authorities where username='administrator';
+Query OK, 1 row affected (0.02 sec)
+
+mysql> delete from user where username='administrator';
+ERROR 1146 (42S02): Table 'springtutorial.user' doesn't exist
+mysql> delete from users where username='administrator';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> update authorities set authority='ROLE_ADMIN' where username = 'administrator';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from authorities;
++---------------+------------+
+| username      | authority  |
++---------------+------------+
+| administrator | ROLE_ADMIN |
+| jilldanko     | ROLE_USER  |
++---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from users;
++---------------+----------------------------------------------------------------------------------+---------+------------------+
+| username      | password                                                                         | enabled | email            |
++---------------+----------------------------------------------------------------------------------+---------+------------------+
+| administrator | 5765670c9bfc4371d2f8c4c426e94d04f7a1b30b34e3c240b73486f3215eb94a758887400e8454ab |       1 | admin@cave.com   |
+| jilldanko     | 208311ceb3559b0a6073e1b94300540143df9ebe21940d061901cb17909388c5590cb1d96e4f9a9f |       1 | jill@rookies.com |
++---------------+----------------------------------------------------------------------------------+---------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from users;
++---------------+----------------------------------------------------------------------------------+---------+------------------+
+| username      | password                                                                         | enabled | email            |
++---------------+----------------------------------------------------------------------------------+---------+------------------+
+| administrator | 5765670c9bfc4371d2f8c4c426e94d04f7a1b30b34e3c240b73486f3215eb94a758887400e8454ab |       1 | admin@cave.com   |
+| jilldanko     | 208311ceb3559b0a6073e1b94300540143df9ebe21940d061901cb17909388c5590cb1d96e4f9a9f |       1 | jill@rookies.com |
+| testuser      | e82f6eb7cf1d2c6067bca4eb882cbac454729dffae6e4618a2b3aa4af27a10d0dbc2629bbcb803e1 |       1 | test@test.com    |
++---------------+----------------------------------------------------------------------------------+---------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from authorities;
++---------------+------------+
+| username      | authority  |
++---------------+------------+
+| administrator | ROLE_ADMIN |
+| jilldanko     | ROLE_USER  |
+| testuser      | ROLE_USER  |
++---------------+------------+
+3 rows in set (0.00 sec)
+
+
