@@ -29,3 +29,12 @@ Chapter 6 ORM Integration
 Copy this: javax.persistence.validation.group.pre-persist,
 
 Deleted and then added messagesent.jsp
+
+INFO - FrameworkServlet 'offers': initialization completed in 1197 ms
+Nov 21, 2016 10:08:43 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-nio-8080"]
+Nov 21, 2016 10:08:43 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-nio-8009"]
+Nov 21, 2016 10:08:43 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 7830 ms
+WARN - No mapping found for HTTP request with URI [/offers/] in DispatcherServlet with name 'offers'
