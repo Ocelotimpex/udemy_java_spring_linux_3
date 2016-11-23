@@ -6,6 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.caveofprogramming.spring.web.validation.ValidEmail;
 
 @Entity
 @Table(name="messages")
@@ -24,10 +29,23 @@ public class Message implements Serializable {
 	@Id
 	@GeneratedValue
 	private int id;
+	
+	@NotBlank
+	@Size(min=5, max=100)
 	private String subject;
+	
+	@NotBlank
+	@Size(min=5, max=1000)
 	private String content;
+	
+	@NotBlank
+	@Size(min=8, max=64)
 	private String name; // Name of user sending message
+	
+	@ValidEmail
 	private String email; // Sender's email TO this user.
+	
+	
 	private String username; // Send message to this use.
 
 	public Message() {
