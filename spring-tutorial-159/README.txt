@@ -1,3 +1,10 @@
+###############################################################################
+###
+### N O T E S
+###
+###############################################################################
+
+
 1) From Servers --> Tomcat --> Catalina --> context.xml
 
 	<Resource name="jdbc/offers" auth="Container" type="javax.sql.DataSource"
