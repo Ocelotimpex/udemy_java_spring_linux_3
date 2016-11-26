@@ -7,6 +7,8 @@
 <h2>Send Message</h2>
 <sf:form method="post" commandName="message">
 
+User: ${fromUser}
+
 <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
 <input type="hidden" name="_eventId" value="send" />
 
