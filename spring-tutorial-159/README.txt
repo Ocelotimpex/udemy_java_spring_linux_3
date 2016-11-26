@@ -1,3 +1,10 @@
+###############################################################################
+###
+### N O T E S
+###
+###############################################################################
+
+
 1) From Servers --> Tomcat --> Catalina --> context.xml
 
 	<Resource name="jdbc/offers" auth="Container" type="javax.sql.DataSource"
@@ -38,3 +45,5 @@ INFO: Starting ProtocolHandler ["ajp-nio-8009"]
 Nov 21, 2016 10:08:43 PM org.apache.catalina.startup.Catalina start
 INFO: Server startup in 7830 ms
 WARN - No mapping found for HTTP request with URI [/offers/] in DispatcherServlet with name 'offers'
+
+------------------------------------------------------- END -------------------------------------------------------------
