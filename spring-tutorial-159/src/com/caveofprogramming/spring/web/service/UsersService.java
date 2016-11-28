@@ -27,6 +27,7 @@ public class UsersService {
 
 	public boolean exists(String username) {
 		// TODO Auto-generated method stub
+		Criteria 
 
 		return usersDao.exists(username);
 	}
@@ -41,6 +42,10 @@ public class UsersService {
 	
 	public void sendMessage(Message message) {
 		messagesDao.saveOrUpdate(message);
+	}
+	
+	public User getUser(String username ) {
+		usersDao.getUser(username);
 	}
 
 }
