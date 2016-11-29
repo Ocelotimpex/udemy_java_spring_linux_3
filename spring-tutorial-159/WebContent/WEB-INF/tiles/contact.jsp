@@ -7,8 +7,6 @@
 <h2>Send Message</h2>
 <sf:form method="post" commandName="message">
 
-User: ${fromUser}
-
 <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
 <input type="hidden" name="_eventId" value="send" />
 
@@ -17,7 +15,7 @@ User: ${fromUser}
 
 		<tr>
 			<td class="label">Your name:</td>
-			<td><sf:input class="control" path="name" name="name"
+			<td><sf:input class="control" path="name" name="name" value="${fromName}"
 					type="text" /><br />
 			<div class="error">
 					<sf:errors path="name"></sf:errors>
@@ -26,7 +24,7 @@ User: ${fromUser}
 		
 		<tr>
 			<td class="label">Your email:</td>
-			<td><sf:input class="control" path="email" name="email"
+			<td><sf:input class="control" path="email" name="email"  value="${fromEmail}"
 					id="email" type="text" /><br />
 				<div class="error">
 					<sf:errors path="email"></sf:errors>

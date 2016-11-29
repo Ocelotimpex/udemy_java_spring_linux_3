@@ -2,6 +2,9 @@ package com.caveofprogramming.spring.web.dao;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
@@ -14,7 +17,7 @@ import com.caveofprogramming.spring.web.validation.ValidEmail;
 
 @Entity
 @Table(name="users")
-public class User {
+public class User implements Serializable{
 
 	@NotBlank(groups={PersistenceValidationGroup.class,FormValidationGroup.class})
 	@Size(min = 8, max = 15,groups={PersistenceValidationGroup.class,FormValidationGroup.class})
