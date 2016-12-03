@@ -2,6 +2,7 @@ package com.caveofprogramming.spring.web.controllers;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -106,6 +107,7 @@ public class LoginController {
 	public Map<String, Object> getMessages(Principal principal) {
 		
 		List<Message> messages = null;
+		
 		if (principal == null) {
 			messages = new ArrayList<Message>();
 			
@@ -113,6 +115,11 @@ public class LoginController {
 			String username = principal.getName();
 			messages = usersService.getMessages(username);
 		}
-		return null;
+		
+		Map<String, Object> data = new HashMap<String, Object>();
+		data.put( "messages", messages);
+		data.put( "number", messages.size() );
+		
+		return data;
 	}
 }
