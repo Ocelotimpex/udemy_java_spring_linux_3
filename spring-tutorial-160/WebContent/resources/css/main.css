@@ -79,3 +79,7 @@ a.title {
 input.delete {
 	border: 1px solid red;
 }
+
+td.name {
+	width: 150px;
+}

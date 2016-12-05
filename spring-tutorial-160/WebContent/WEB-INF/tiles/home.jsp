@@ -8,18 +8,14 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <table class="offers">
-		<tr>
-			<td>Name</td>
-			<td>Email</td>
-			<td>Offer</td>
 
-		</tr>
 		<c:forEach var="offer" items="${offers}">
 
 			<tr>
-				<td><c:out value="${offer.user.name}"></c:out></td>
-				<td><a href="<c:url value='/message?uid=${offer.username}'/>">contact</a></td>
-				<td><c:out value="${offer.text}"></c:out></td>
+
+				<td class="name"><c:out value="${offer.user.name}"></c:out></td>
+				<td class="contact"><c:out value="${offer.user.email}"></c:out></td>
+				<td class="text"><c:out value="${offer.text}"></c:out></td>
 
 
 			</tr>
