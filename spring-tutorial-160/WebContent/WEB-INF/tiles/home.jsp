@@ -11,7 +11,7 @@
 
 		<c:forEach var="offer" items="${offers}">
 
-			<tr>
+			<tr class="offerrow">
 
 				<td class="name"><c:out value="${offer.user.name}"></c:out></td>
 				<td class="contact"><c:out value="${offer.user.email}"></c:out></td>
