@@ -41,3 +41,13 @@
 <p><a href="<c:url value='/admin'/>">Admin</a></p>
 </sec:authorize>
 
+
+<script type="text/javascript">
+<!--
+function onLoad() {
+	alert("Document loaded.");
+	
+}
+$(document).ready(onLoad);
+//-->
+</script>
