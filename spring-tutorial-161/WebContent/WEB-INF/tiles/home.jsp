@@ -42,12 +42,19 @@
 </sec:authorize>
 
 
+
+
 <script type="text/javascript">
 <!--
+
+function updateMessageLink(data) {
+	alert(data.number);
+}
+
 function onLoad() {
-	alert("Document loaded.");
 	
-	$.getJSON();
+	
+	$.getJSON(<c:url value="/getmessages"/>, updateMessaegLink);
 	
 }
 $(document).ready(onLoad);
