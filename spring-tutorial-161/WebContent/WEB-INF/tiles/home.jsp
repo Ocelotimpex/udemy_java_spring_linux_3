@@ -47,6 +47,8 @@
 function onLoad() {
 	alert("Document loaded.");
 	
+	$.getJSON();
+	
 }
 $(document).ready(onLoad);
 //-->
