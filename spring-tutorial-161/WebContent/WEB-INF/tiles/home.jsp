@@ -7,21 +7,6 @@
 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<table class="offers">
-
-		<c:forEach var="offer" items="${offers}">
-
-			<tr class="offerrow">
-
-				<td class="name"><c:out value="${offer.user.name}"></c:out></td>
-				<td class="contact"><c:out value="${offer.user.email}"></c:out></td>
-				<td class="text"><c:out value="${offer.text}"></c:out></td>
-
-
-			</tr>
-	</c:forEach>
-	</table>
-
     <c:choose>
     
     <c:when test="${hasOffer}">
@@ -40,6 +25,23 @@
 <sec:authorize access="hasRole('ROLE_ADMIN')">
 <p><a href="<c:url value='/admin'/>">Admin</a></p>
 </sec:authorize>
+
+<table class="offers">
+
+		<c:forEach var="offer" items="${offers}">
+
+			<tr class="offerrow">
+
+				<td class="name"><c:out value="${offer.user.name}"></c:out></td>
+				<td class="contact"><c:out value="${offer.user.email}"></c:out></td>
+				<td class="text"><c:out value="${offer.text}"></c:out></td>
+
+
+			</tr>
+	</c:forEach>
+	</table>
+
+
 
 
 
