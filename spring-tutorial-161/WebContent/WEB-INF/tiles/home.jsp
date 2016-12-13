@@ -14,16 +14,20 @@
     </c:when>
     
     <c:otherwise>
-    <p><a href="${pageContext.request.contextPath}/createoffer">Add A New Offer.</a></p>
+    <a href="${pageContext.request.contextPath}/createoffer">Add A New Offer.</a>
     </c:otherwise>
     
     
     </c:choose>
 
 	
-	
+	&nbsp;
 <sec:authorize access="hasRole('ROLE_ADMIN')">
-<p><a href="<c:url value='/admin'/>">Admin</a></p>
+<a href="<c:url value='/admin'/>">Admin</a>
+</sec:authorize>
+&nbsp;
+<sec:authorize access="isAuthenticated()">
+<a href="<c:url value='/messages'/>">Messages(<span id="numberMessages">0</span>)</a>
 </sec:authorize>
 
 <table class="offers">
