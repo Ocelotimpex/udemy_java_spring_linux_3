@@ -38,7 +38,7 @@
 			<tr class="offerrow">
 
 				<td class="name"><c:out value="${offer.user.name}"></c:out></td>
-				<td class="contact"><c:out value="${offer.username}"></c:out></td>
+				<td><a href="<c:url value='/message?uid=${offer.username}'/>">contact</a></td>
 				<td class="text"><c:out value="${offer.text}"></c:out></td>
 
 
@@ -48,16 +48,21 @@
 
 <script type="text/javascript">
 <!--
-
 function updateMessageLink(data) {
 	$("#numberOfMessage").text(data.number);
  }
 
  function onLoad() {
-    $.getJSON("<c:url value="/getmessages"/>", updateMessaegLink);
+	updatePage();  
+    window.setInterval(updatePage,5000);
+ }
+ 
+ function updatePage() {
+	 alert("Updating Page");
+	 $getJSON("<c:url value="/getmessages"/>", updateMessaegLink);
  }
   
-$(document).ready(onLoad);
+$(document).ready(onLoad); 
 
 //-->
 
