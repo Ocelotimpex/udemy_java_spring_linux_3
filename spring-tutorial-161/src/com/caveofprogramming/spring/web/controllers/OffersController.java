@@ -42,36 +42,6 @@ public class OffersController {
 		return "home";
 	}
 	
-	/*
-	@ExceptionHandler(DataAccessException.class)
-	public String handleDatabaseException(DataAccessException ex) {
-		return "error";
-	}
-	*/
-	
-	@RequestMapping("/offers")
-	public String showOffers(Model model) {
-		
-		//offersService.throwTestException();
-
-		List<Offer> offers = offersService.getCurrent();
-		
-		model.addAttribute("offers", offers);
-
-		return "offers";
-	}
-	/*
-	private Object OffersService() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	private Object offersService() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-*/
 
 	@RequestMapping("/createoffer")
 	public String createOffer(Model model, Principal principal) {
@@ -117,13 +87,5 @@ public class OffersController {
 			return "offerdeleted";
 		} 
 		
-		/*String username = principal.getName();
-		System.out.println("DEBUG /docreate username = " + username );
-		
-		offer.getUser().setUsername( username );
-		
-		offersService.saveOrUpdate(offer);
-		
-		return "offercreated"; */
 	}
 }

@@ -56,6 +56,13 @@ div.content {
 	padding: 40px;
 }
 
+div.toolbar {
+	position: relative;
+	padding-left 40px;
+	top: 10px;
+	
+}
+
 div.header {
 	position: relative;
 	text-align: center;
