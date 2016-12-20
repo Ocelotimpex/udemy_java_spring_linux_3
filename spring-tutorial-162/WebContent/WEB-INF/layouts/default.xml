@@ -87,4 +87,10 @@
 	</definition>
 
 
+	<definition name="messages" extends="offers.base">
+		<put-attribute name="title" value="Messages"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/messages.jsp"></put-attribute>
+	</definition>
+
+
 </tiles-definitions>

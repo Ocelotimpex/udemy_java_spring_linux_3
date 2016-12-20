@@ -48,6 +48,12 @@ public class LoginController {
 		return "denied";
 	}
 
+	@RequestMapping("/messages")
+	public String showMessages() {
+		logger.info("*** DEBUG *** LoginController: returning /denied");
+		return "messages";
+	}
+
 	@RequestMapping("/loggedout")
 	public String showLoggedOut() {
 		return "loggedout";
