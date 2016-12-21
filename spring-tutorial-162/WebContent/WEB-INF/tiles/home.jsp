@@ -34,7 +34,7 @@ function updateMessageLink(data) {
  }
  
  function updatePage() {
-	 alert("Updating Page");
+	 //alert("Updating Page");
 	 $getJSON("<c:url value="/getmessages"/>", updateMessaegLink);
  }
   

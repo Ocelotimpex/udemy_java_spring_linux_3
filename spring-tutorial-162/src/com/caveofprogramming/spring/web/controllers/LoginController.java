@@ -50,7 +50,7 @@ public class LoginController {
 
 	@RequestMapping("/messages")
 	public String showMessages() {
-		logger.info("*** DEBUG *** LoginController: returning /denied");
+		logger.info("*** DEBUG *** LoginController: returning /messages");
 		return "messages";
 	}
 
