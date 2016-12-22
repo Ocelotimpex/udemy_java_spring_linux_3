@@ -18,7 +18,7 @@ function showMessages(data) {
 	for ( var i=0; i < data.messages.length; i++) {
 		var message=data.messages[i];
 		
-		$("div#messages").appedn(message.subject);
+		$("div#messages").appedn("<em>Hello</em>");
 	}
  }
 
