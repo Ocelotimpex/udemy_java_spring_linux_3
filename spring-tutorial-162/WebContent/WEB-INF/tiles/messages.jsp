@@ -18,7 +18,14 @@ function showMessages(data) {
 	for ( var i=0; i < data.messages.length; i++) {
 		var message=data.messages[i];
 		
-		$("div#messages").appedn("<em>Hello</em>");
+		var messsageDiv = document.createElement("div");
+		messageDiv.setAttribute("class","message");
+		
+		var subjectSpan = document.createElement("span");
+		subjectSpan.setAttribute("class","subject");
+		subjectSpan.appendChild(document.createTextNode(message.subject));
+		
+		$("div#message").append(messageDiv);
 	}
  }
 
