@@ -25,6 +25,8 @@ function showMessages(data) {
 		subjectSpan.setAttribute("class","subject");
 		subjectSpan.appendChild(document.createTextNode(message.subject));
 		
+		messageDiv.appendChild(subjectSpan);
+		
 		$("div#message").append(messageDiv);
 	}
  }

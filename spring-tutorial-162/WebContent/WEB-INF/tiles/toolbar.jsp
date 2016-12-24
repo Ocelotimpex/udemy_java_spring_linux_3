@@ -14,10 +14,8 @@
     <c:otherwise>
     <a href="${pageContext.request.contextPath}/createoffer">Add A New Offer.</a>
     </c:otherwise>
-    
-    
+       
     </c:choose>
-
 	
 	&nbsp;
 <sec:authorize access="hasRole('ROLE_ADMIN')">
