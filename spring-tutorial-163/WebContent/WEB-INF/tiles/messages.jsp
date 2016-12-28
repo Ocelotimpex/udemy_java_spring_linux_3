@@ -34,6 +34,10 @@
 			nameSpan.setAttribute("class", "name");
 			nameSpan.appendChild(document.createTextNode(message.name + " (" + message.email + ")"));
 			
+			var contentSpan = document.createElement("form");
+			contentSpan.setAttribute("class", "messagebody");
+			contentSpan.appendChild(document.createTextNode(message.content));
+			
 			messageDiv.appendChild(subjectSpan);
 			messageDiv.appendChild(contentSpan);
 			messageDiv.appendChild(nameSpan);
