@@ -34,13 +34,19 @@
 			nameSpan.setAttribute("class", "name");
 			nameSpan.appendChild(document.createTextNode(message.name + " (" + message.email + ")"));
 			
-			var contentSpan = document.createElement("form");
-			contentSpan.setAttribute("class", "messagebody");
-			contentSpan.appendChild(document.createTextNode(message.content));
+			var replyForm = document.createElement("form");
+			replyForm.setAttribute("class", "messagebody");
+			var textarea = document.createElement("textarea");
+			textarea.setAttribute("class","replyarea");
+			
+			var replyButtion= document.createElement("button");
+			
+			replyForm.appendChild(textarea);
 			
 			messageDiv.appendChild(subjectSpan);
 			messageDiv.appendChild(contentSpan);
 			messageDiv.appendChild(nameSpan);
+			messageDiv.appendChild(replyForm);
 			
 			$("div#messages").append(messageDiv);
 		}
