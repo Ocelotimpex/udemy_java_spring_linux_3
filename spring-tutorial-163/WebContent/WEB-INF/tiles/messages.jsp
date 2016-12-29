@@ -39,7 +39,9 @@
 			var textarea = document.createElement("textarea");
 			textarea.setAttribute("class","replyarea");
 			
-			var replyButtion= document.createElement("button");
+			var replyButtion= document.createElement("input");
+			replyButton.setAttribute("type", "button");
+			replyButton.setAttribute("value", "Reply");
 			
 			replyForm.appendChild(textarea);
 			
