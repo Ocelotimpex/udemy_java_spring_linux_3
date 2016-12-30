@@ -126,4 +126,21 @@ span.name {
 	font-size: medium;
 }
 
+form.replyform {
+	padding: 20px;
+	border: 1px solid red;
+	
+}
+
+textarea.replyarea {
+	width: 400px;
+	height: 1px solid red;
+}
+
+
+input.replybutton {
+	display: black;
+	font-size: large;
+}
+
 
