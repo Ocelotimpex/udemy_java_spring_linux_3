@@ -40,7 +40,7 @@
 			var textarea = document.createElement("textarea");
 			textarea.setAttribute("class","replyarea");
 			
-			var replyButtion= document.createElement("input");
+			var replyButton= document.createElement("input");
 			replyButton.setAttribute("class", "replybutton");
 			replyButton.setAttribute("type", "button");
 			replyButton.setAttribute("value", "Reply");
