@@ -19,8 +19,8 @@
         $("#form"+i).toggle();
     }
     
-    function sendMessage () {
-    	alert( "hello")
+    function sendMessage (i) {
+    	alert( $("#textbox"+i).val())
     	
     }
 
@@ -60,14 +60,15 @@ function showMessages(data) {
 			
 			var textarea = document.createElement("textarea");
 			textarea.setAttribute("class","replyarea");
+			textarea.setAttribute("id","textbox"+i);
 			
 			var replyButton= document.createElement("input");
 			replyButton.setAttribute("class", "replybutton");
 			replyButton.setAttribute("type", "button");
 			replyButton.setAttribute("value", "Reply");
-			replyButton.onclick = function() {
+			replyButton.onclick = function(j) {
 				return function() {
-					sendReply();
+					sendMessage(j);
 				}
 			}(i);
 			
@@ -94,7 +95,7 @@ function showMessages(data) {
 	}
 	
 	function startTimer() {
-		timer = window.setInterval(updatePage, 10000);
+		timer = window.setInterval(updatePage, 100000);
 	}
 	
 	function updatePage() {
