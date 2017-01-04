@@ -31,7 +31,7 @@
     	$("#button"+id).prop("Value","Sending...");
     	$.ajax ({
     	        type: "POST",
-    	        url: "<c:url value='/sendmessage'/>",
+    	        url: "<c:url value='/messagesend'/>",
     	        data: JSON.stringify({"content":text, "id":id}),
     	        success:sent,
     	        error: error,
