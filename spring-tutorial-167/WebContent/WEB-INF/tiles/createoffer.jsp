@@ -5,21 +5,20 @@
 
 <script type="text/javascript">
 <!--
+	function onDeleteClick(event) {
 
-function onDeleteClick(event) {
-	
-	var doDelete = confirm("Are you sure you want to delete this offer?");
-	
-	if(doDelete == false) {
-		event.preventDefault();
+		var doDelete = confirm("Are you sure you want to delete this offer?");
+
+		if (doDelete == false) {
+			event.preventDefault();
+		}
 	}
-}
 
-function onReady() {
-	$("#delete").click(onDeleteClick);
-}
+	function onReady() {
+		$("#delete").click(onDeleteClick);
+	}
 
-$(document).ready(onReady);
+	$(document).ready(onReady);
 //-->
 </script>
 
