@@ -37,7 +37,7 @@
 		updatePage();
 		window.setInterval(updatePage, 5000);
 	}
-	
+
 	function updatePage() {
 		$.getJSON("<c:url value="/getmessages"/>", updateMessageLink);
 	}
