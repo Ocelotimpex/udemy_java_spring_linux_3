@@ -14,29 +14,34 @@
 <!-- 
     var timer;
     
-    function error(data){
-    	$("#button"+id).data("Value","Send.");
-    	alert("Error: unable to send message")
-    	
-    }
+function error(data){
+	$("#button"+id).data("Value","Send.");
+	alert("Error: unable to send message")
+	
+}
 
+function success(data){
+	$("#button"+id).data("Value","Send.");
+	alert("Error: unable to send message")
+	
+}
     function showReply(i) {
         stopTimer();
         $("#form"+i).toggle();
     }
     
     function sendMessage (i, name, email) {
-    	var text = $("#" + id).val();
+    	var text = $("#textbox" + i).val();
     	
     	$("#button"+id).prop("Value","Sending...");
     	$.ajax ({
-    	        type: "POST",
-    	        url: "<c:url value='/messagesend'/>",
-    	        data: JSON.stringify({"content":text, "id":id}),
-    	        success:sent,
-    	        error: error,
-    	        contentType:"application/json",
-    	        dataType: "json"
+    	        "type": "POST",
+    	        "url": "<c:url value='/messagesend'/>",
+    	        "data": JSON.stringify({"text" :text, "name" : name, "email" : email }),
+    	        "success":success,
+    	        "error": error,
+    	        "contentType":"application/json",
+    	        "dataType": "json"
     	    });  	
     }
 
