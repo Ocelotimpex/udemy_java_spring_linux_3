@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -116,23 +117,20 @@ public class LoginController {
 		return data;
 	}
 	
-	@RequestMapping(value="/getmessages", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/sendmessage", method=RequestMethod.POST, produces="application/json")
 	@ResponseBody
-	public Map<String, Object> sendMessages(Principal principal) {
+	public Map<String, Object> sendMessages(Principal principal, @RequestBody Map<String, Object> data) {
 		
-		List<Message> messages = null;
+		String text = (String)data.get("text");
+		String name = (String)data.get("name");
+		String email = (String)data.get("email");
 		
-		if(principal == null) {
-			messages = new ArrayList<Message>();
-		}
-		else {
-			String username = principal.getName();
-			messages = usersService.getMessages(username);
-		}
+		System.out.println(name + ", " + email + ", " + text  );
+
 		
-		Map<String, Object> data = new HashMap<String, Object>();
-		data.put("messages", messages);
-		data.put("number", messages.size());
+		Map<String, Object> rval = new HashMap<String, Object>();
+		
+		rval.put("success", true);
 		
 		return data;
 	}

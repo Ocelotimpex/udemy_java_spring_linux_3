@@ -15,14 +15,14 @@
     var timer;
     
 function error(data){
-	$("#button"+id).data("Value","Send.");
-	alert("Error: unable to send message")
+	
+	alert("error");
 	
 }
 
 function success(data){
-	$("#button"+id).data("Value","Send.");
-	alert("Error: unable to send message")
+	
+	alert("success");
 	
 }
     function showReply(i) {
@@ -33,10 +33,10 @@ function success(data){
     function sendMessage (i, name, email) {
     	var text = $("#textbox" + i).val();
     	
-    	$("#button"+id).prop("Value","Sending...");
+    	$("#button"+i).prop("Value","Sending...");
     	$.ajax ({
     	        "type": "POST",
-    	        "url": "<c:url value='/messagesend'/>",
+    	        "url": "<c:url value='/sendmessage'/>",
     	        "data": JSON.stringify({"text" :text, "name" : name, "email" : email }),
     	        "success":success,
     	        "error": error,
