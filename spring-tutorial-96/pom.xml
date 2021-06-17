@@ -40,7 +40,7 @@
   	<dependency>
   		<groupId>org.hibernate</groupId>
   		<artifactId>hibernate-validator</artifactId>
-  		<version>5.0.1.Final</version>
+  		<version>6.0.19.Final</version>
   	</dependency>
   	<dependency>
   		<groupId>javax.validation</groupId>
@@ -55,7 +55,7 @@
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-webmvc</artifactId>
-  		<version>3.2.3.RELEASE</version>
+  		<version>3.2.9.RELEASE</version>
   	</dependency>
   	<dependency>
   		<groupId>org.springframework</groupId>
@@ -65,12 +65,12 @@
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-beans</artifactId>
-  		<version>3.2.3.RELEASE</version>
+  		<version>3.2.9.RELEASE</version>
   	</dependency>
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-context</artifactId>
-  		<version>3.2.3.RELEASE</version>
+  		<version>3.2.9.RELEASE</version>
   	</dependency>
   	<dependency>
   		<groupId>org.springframework</groupId>
@@ -95,7 +95,7 @@
   	<dependency>
   		<groupId>org.springframework.security</groupId>
   		<artifactId>spring-security-web</artifactId>
-  		<version>3.1.4.RELEASE</version>
+  		<version>3.2.7.RELEASE</version>
   	</dependency>
   	<dependency>
   		<groupId>org.springframework.security</groupId>
